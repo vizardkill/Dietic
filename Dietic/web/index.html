@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!--CSS Predeterminados de Bootstrap-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome-5.css">
+    <link rel="stylesheet" href="css/mdb.min.css">
+    <title>Document</title>
+</head>
+
+<body style="background-image: url('img/web/Index/bg-4.jpg'); background-repeat: no-repeat; background-position: center; background-size: auto">
+
+    <header></header>
+    <main>
+        <div class="container" style="margin-top: 10%">
+            <div class="row justify-content-center">
+                <div class="col-6">
+                        <form id="Login" name="Login" method="POST" action="Ingreso">
+                                <div class="form-group">
+        
+                                    <!--Header-->
+                                    <div class="modal-header bg-light">
+                                        <img class="img-fluid mx-auto d-block" src="img/web/Index/Logo.png" alt="" width="100px" height="100px">
+                                    </div>
+                                    <!--/Header-->
+        
+                                    <!--Body-->
+                                    <div class="modal-body" style="background-color:white">
+                                        <div id="errorLogin" class="alert alert-danger d-none" role="alert">
+                                            <h6 class="h6 text-center">Usuario o contraseña incorrecta</h6>
+                                        </div>
+        
+                                        <div class="md-form mb-5">
+                                            <i class="fa fa-user prefix grey-text"></i>
+                                            <input type="text" id="NICK_USER" name="NICK_USER" class="form-control validate" aria-describedby="NICK_USER">
+                                            <label data-success="" for="NICK_USER">Usuario</label>
+                                        </div>
+        
+                                        <div class="md-form mb-4">
+                                            <i class="fa fa-lock prefix grey-text"></i>
+                                            <input type="password" id="PASSWORD_USER" name="PASSWORD_USER" class="form-control validate">
+                                            <label data-success="" for="PASSWORD_USER">Contraseña</label>
+                                        </div>
+        
+                                        <div class="justify-content-center align-items-center">
+                                            <button id="ingreso" class="btn btn-red d-block mx-auto" type="submit">Ingresar</button>
+                                            <i id="load" class="fa fa-spinner fa-spin d-none text-center mx-auto"></i>
+                                        </div>
+        
+        
+                                    </div>
+                                    <!--/Body-->
+        
+                                    <!--Footer-->
+                                    <div class="modal-footer bg-light">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-12 text-center">
+                                                    <p><a href=""><strong>¿Olvidaste tu contraseña?</strong></a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/Footer-->
+        
+                                </div>
+                            </form>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+
+
+
+    <!-- Script para Ejecutar Bootstrap y JQuery -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/mdb.min.js"></script>
+</body>
+
+</html>
