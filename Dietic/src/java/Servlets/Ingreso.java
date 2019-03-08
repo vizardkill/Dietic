@@ -5,6 +5,7 @@
  */
 package Servlets;
 
+import Controlador.controller_Usuario;
 import Metodos.Json_Datos;
 import Modelos.Usuario;
 import java.io.IOException;
@@ -59,7 +60,45 @@ public class Ingreso extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String Peticion = request.getParameter("Peticion");
+        
+        
+         //************************************** Validaciones de la Tabla Usuario *********************************
+        if (Peticion.equals("ValidarNickUsuario")) {
+            Usuario user = new Usuario();
+            user.setNICK_USER(request.getParameter("R_NICK_USER"));
+            controller_Usuario cuser = new controller_Usuario();
+            boolean result = cuser.P_ValidUser(Peticion, user);
+            if (result) {
+                response.getWriter().write("false");
+            } else {
+                response.getWriter().write("true");
+            }
+        }
+
+        if (Peticion.equals("ValidarEmailUsuario")) {
+            Usuario user = new Usuario();
+            user.setCORREO_USER(request.getParameter("CORREO_USER"));
+            controller_Usuario cuser = new controller_Usuario();
+            boolean result = cuser.P_ValidUser(Peticion, user);
+            if (result) {
+                response.getWriter().write("false");
+            } else {
+                response.getWriter().write("true");
+            }
+        }
+
+        if (Peticion.equals("ValidarDocUsuario")) {
+            Usuario user = new Usuario();
+            user.setDOC_USER(request.getParameter("DOC_USER"));
+            controller_Usuario cuser = new controller_Usuario();
+            boolean result = cuser.P_ValidUser(Peticion, user);
+            if (result) {
+                response.getWriter().write("false");
+            } else {
+                response.getWriter().write("true");
+            }
+        }
     }
 
     /**

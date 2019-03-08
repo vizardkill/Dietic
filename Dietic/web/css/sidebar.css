@@ -109,7 +109,7 @@ body {
 }
 
 [data-bg="bg1"] {
-    background-image: url(../img/web/Sidebar/bg1.jpg);
+    background-image: url(../img/web/Sidebar/bg2.jpg);
 }
 
 [data-bg="bg2"] {
@@ -117,7 +117,7 @@ body {
 }
 
 [data-bg="bg3"] {
-    background-image: url(../img/web/Sidebar/bg3.jpg);
+    background-image: url(../img/web/Sidebar/bg2.jpg);
 }
 [data-bg="bg4"] {
     background-image: url(../img/web/Sidebar/bg4.jpg);
@@ -191,13 +191,13 @@ body {
 /*----------sidebar background images --------------*/
 
 .sidebar-bg.bg1 .sidebar-wrapper{
-    background-image: url(../img/web/Sidebar/bg1.jpg);
+    background-image: url(../img/web/Sidebar/bg2.jpg);
 }
 .sidebar-bg.bg2 .sidebar-wrapper{
     background-image: url(../img/web/Sidebar/bg2.jpg);
 }
 .sidebar-bg.bg3 .sidebar-wrapper{
-    background-image: url(../img/web/Sidebar/bg3.jpg);
+    background-image: url(../img/web/Sidebar/bg2.jpg);
 }
 .sidebar-bg.bg4 .sidebar-wrapper{
     background-image: url(../img/web/Sidebar/bg4.jpg);

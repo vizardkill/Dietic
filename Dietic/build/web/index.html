@@ -22,14 +22,13 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content rounded ">
                     <form id="Form_Registro_Usuario" name="Form_Registro_Usuario" method="POST"
-                        action="../../Registro?Peticion=Registro_Usuario">
+                        action="Registro?Peticion=Registro_Usuario">
                         <!--Header-->
                         <div class="modal-header bg-dark d-block">
                             <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
-                            <h4 class="text-center text-white"><strong>Registro de
-                                    Usuario</strong></h4>
+                            <h4 class="text-center text-white"><strong>Formulario de Registro</strong></h4>
                         </div>
                         <!--/Header-->
                         <!--Body-->
@@ -41,24 +40,6 @@
                                             role="alert">
                                             <h6 class="h6 text-center">Usuario registrado con ex&#237to</h6>
                                         </div>
-                                        <div class="md-form">
-                                            <div class="select">
-                                                <select id="ID_PERFIL_USER" name="ID_PERFIL_USER" class="select-text"
-                                                    required>
-                                                    <option disabled selected></option>
-                                                </select>
-                                                <span class="select-highlight"></span>
-                                                <span class="select-bar"></span>
-                                                <label class="select-label">Seleccione el Tipo de Usuario</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col d-flex justify-content-center">
-                                        <h4 class="h1" class="text-center" style="font-family: P_cursive">
-                                            Informaci&#243n
-                                            de Contacto</h4>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -87,7 +68,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-12 col-lg-6">
+                                    <div class="col-12 col-lg-4">
                                         <div class="md-form">
                                             <i class="fas fa-envelope prefix grey-text"></i>
                                             <input type="email" id="CORREO_USER" name="CORREO_USER"
@@ -95,12 +76,20 @@
                                             <label data-success="" for="CORREO_USER">Correo Electron&#237co</label>
                                         </div>
                                     </div>
-                                    <div class="col-12 col-lg-6">
+                                    <div class="col-12 col-lg-4">
                                         <div class="md-form">
                                             <i class="fa fa-user prefix grey-text"></i>
                                             <input type="text" id="R_NICK_USER" name="R_NICK_USER"
                                                 class="form-control validate" aria-describedby="R_NICK_USER">
                                             <label data-success="" for="R_NICK_USER">Usuario</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4">
+                                        <div class="md-form">
+                                           <i class="fas fa-mobile-alt prefix grey-text"></i>
+                                            <input type="text" id="R_CELULAR_USER" name="R_CELULAR_USER"
+                                                class="form-control validate" aria-describedby="R_CELULAR_USER">
+                                            <label data-success="" for="R_CELULAR_USER">Celular</label>
                                         </div>
                                     </div>
                                 </div>
@@ -130,8 +119,8 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col d-flex flex-center mx-auto">
-                                        <button id="btn_registro_usuario" class="btn btn-secondary"
-                                            type="submit">Registrar</button>
+                                        <button id="btn_registro_usuario" class="btn btn-dark-green"
+                                            type="submit">Registrarse</button>
                                         <i id="icon_load_usuario"
                                             class="fa fa-spinner fa-spin d-none text-center mx-auto"></i>
                                     </div>
@@ -197,7 +186,7 @@
                                     <div class="row">
                                         <div class="col-12 text-center">
                                             <p><a href=""><strong>¿Olvidaste tu contraseña?</strong></a></p>
-                                            <p><a href=""><strong>¿No tienes una cuenta? Registrate</strong></a></p>
+                                            <p><a href="" data-toggle="modal" data-target="#Mod_Reg_Usuario"><strong>¿No tienes una cuenta? Registrate</strong></a></p>
 
                                         </div>
                                     </div>
