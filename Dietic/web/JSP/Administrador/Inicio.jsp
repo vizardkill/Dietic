@@ -48,7 +48,7 @@
                                             </div>
                                             <div class="float-right">
                                                 <p><strong>Usuarios en Linea</strong></p>
-                                                <h1 class="h1 text-center">5</h1>
+                                                <h1 class="h1 text-center">1</h1>
                                             </div>
                                         </div>
                                         <p class="card-text mt-3"><span style="color:white"><i class="fa fa-question-circle"></i>
@@ -57,51 +57,35 @@
                                     </div>
                                 </div>
 
-                                <div class="card info-color text-white">
-                                    <div class="card-body">
-                                        <div class="clearfix">
-                                            <div class="float-left">
-                                                <i class="fas fa-graduation-cap fa-5x"></i>
-                                            </div>
-                                            <div class="float-right">
-                                                <p><strong>Facultades Registradas</strong></p>
-                                                <h1 class="h1 text-center">1</h1>
-                                            </div>
-                                        </div>
-                                        <p class="card-text mt-3"><span class="text-white"><i class="fa fa-question-circle"></i>
-                                                Todas las facultades registrados en la plataforma</span> </p>
-                                    </div>
-                                </div>
-
                                 <div class="card unique-color text-white">
                                     <div class="card-body">
                                         <div class="clearfix">
                                             <div class="float-left">
-                                                <i class="fa fa-user-tie fa-5x"></i>
+                                                <i class="fa fa-user-friends fa-5x"></i>
                                             </div>
                                             <div class="float-right">
-                                                <p><strong>Profesores Registrados</strong></p>
-                                                <h1 class="h1 text-center">1</h1>
+                                                <p><strong>Usuarios Registrados</strong></p>
+                                                <h1 class="h1 text-center">Sin calcular</h1>
                                             </div>
                                         </div>
                                         <p class="card-text mt-3"><span class="text-white"><i class="fa fa-question-circle"></i>
-                                                Todos los profesores registrados en la plataforma</span> </p>
+                                                Todos los usuarios registrados en la plataforma</span> </p>
                                     </div>
                                 </div>
 
-                                <div class="card rgba-indigo-strong">
+                                <div class="card rgba-red-strong">
                                     <div class="card-body">
                                         <div class="clearfix">
                                             <div class="float-left">
-                                                <i class="fa fa-user-graduate fa-5x"></i>
+                                                    <i class="fas fa-allergies fa-5x"></i>
                                             </div>
                                             <div class="float-right">
-                                                <p><strong>Estudiantes Registrados</strong></p>
-                                                <h1 class="h1 text-center">1</h1>
+                                                <p><strong>Nuevas Solicitudes</strong></p>
+                                                <h1 class="h1 text-center">Sin calcular</h1>
                                             </div>
                                         </div>
-                                        <p class="card-text mt-3"><span class="text-white"><i class="fa fa-question-circle"></i>
-                                                Todos los estudiantes registrados en la plataforma</span> </p>
+                                        <p class="card-text mt-3"><span style="color:black"><i class="fa fa-question-circle"></i>
+                                                Todas las solicitudes del sistema</span> </p>
                                     </div>
                                 </div>
                             </div>
@@ -145,23 +129,10 @@
                                     Novedades</h4>
                                 <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
                                     <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1"><strong>PoliNotes v1.2</strong></h5>
+                                        <h5 class="mb-1"><strong>Dietic v1.0</strong></h5>
                                         <small><span class="badge badge-success">Nuevo</span></small>
                                     </div>
-                                    <p class="mb-1">Descubre las novedades de las ultimas actualizaciones</p>
-                                    <small>Administrador</small>
-                                </a>
-                                <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1"><strong>Nuevos miembros del grupo</strong></h5>
-                                    </div>
-                                    <p class="mb-1">Integrantes del grupo:
-                                        <ul>
-                                            <li>Santiago Cardona</li>
-                                            <li>Juan Pablo Maso</li>
-                                            <li>Alejandro</li>
-                                        </ul>
-                                    </p>
+                                    <p class="mb-1">Plataforma en desarrollo</p>
                                     <small>Administrador</small>
                                 </a>
                             </div>
