@@ -67,6 +67,7 @@ public class DAO_Usuario implements IUsuario {
             while (rs.next()) {
                 Usuario u = new Usuario();
                 u.setDOC_USER(rs.getString("DOC_USER"));
+                u.setNICK_USER(rs.getString("NICK_USER"));
                 u.setNOMBRE_USER(rs.getString("NOMBRE_USER"));
                 u.setAPELLIDOS_USER(rs.getString("APELLIDOS_USER"));
                 u.setCELULAR_USER(rs.getString("CELULAR_USER"));

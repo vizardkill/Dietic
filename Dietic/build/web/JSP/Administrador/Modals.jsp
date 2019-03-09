@@ -1,3 +1,5 @@
+<!--#################################################### CRUD de Materias ##############################################################-->
+
 <!--Modal Sucess-->
 <div class="modal fade right" id="Mod_Sucess" tabindex="-1" role="dialog" aria-labelledby="Mod_Sucess"
     aria-hidden="true" data-backdrop="false">
@@ -30,8 +32,7 @@
                     <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="text-center text-white"><strong>Registro de
-                            Usuario</strong></h4>
+                    <h4 class="text-center text-white"><strong>Formulario de Registro</strong></h4>
                 </div>
                 <!--/Header-->
                 <!--Body-->
@@ -42,22 +43,6 @@
                                 <div id="msg_SucessRegistro_usuario" class="alert alert-success d-none" role="alert">
                                     <h6 class="h6 text-center">Usuario registrado con ex&#237to</h6>
                                 </div>
-                                <div class="md-form">
-                                    <div class="select">
-                                        <select id="ID_PERFIL_USER" name="ID_PERFIL_USER" class="select-text" required>
-                                            <option disabled selected></option>
-                                        </select>
-                                        <span class="select-highlight"></span>
-                                        <span class="select-bar"></span>
-                                        <label class="select-label">Seleccione el Tipo de Usuario</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col d-flex justify-content-center">
-                                <h4 class="h1" class="text-center" style="font-family: P_cursive">Informaci&#243n
-                                    de Contacto</h4>
                             </div>
                         </div>
                         <div class="row">
@@ -86,7 +71,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12 col-lg-6">
+                            <div class="col-12 col-lg-4">
                                 <div class="md-form">
                                     <i class="fas fa-envelope prefix grey-text"></i>
                                     <input type="email" id="CORREO_USER" name="CORREO_USER"
@@ -94,12 +79,20 @@
                                     <label data-success="" for="CORREO_USER">Correo Electron&#237co</label>
                                 </div>
                             </div>
-                            <div class="col-12 col-lg-6">
+                            <div class="col-12 col-lg-4">
                                 <div class="md-form">
                                     <i class="fa fa-user prefix grey-text"></i>
                                     <input type="text" id="R_NICK_USER" name="R_NICK_USER" class="form-control validate"
                                         aria-describedby="R_NICK_USER">
                                     <label data-success="" for="R_NICK_USER">Usuario</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-4">
+                                <div class="md-form">
+                                    <i class="fas fa-mobile-alt prefix grey-text"></i>
+                                    <input type="text" id="R_CELULAR_USER" name="R_CELULAR_USER"
+                                        class="form-control validate" aria-describedby="R_CELULAR_USER">
+                                    <label data-success="" for="R_CELULAR_USER">Celular</label>
                                 </div>
                             </div>
                         </div>
@@ -129,8 +122,8 @@
                     <div class="container">
                         <div class="row">
                             <div class="col d-flex flex-center mx-auto">
-                                <button id="btn_registro_usuario" class="btn btn-secondary"
-                                    type="submit">Registrar</button>
+                                <button id="btn_registro_usuario" class="btn btn-dark-green"
+                                    type="submit">Registrarse</button>
                                 <i id="icon_load_usuario" class="fa fa-spinner fa-spin d-none text-center mx-auto"></i>
                             </div>
                         </div>
@@ -144,3 +137,49 @@
     </div>
 </div>
 <!--/Modal de Registro de Usuario-->
+
+<!--Modal Eliminar Usuario-->
+<div class="modal fade" id="Mod_Elim_Usuario" tabindex="-1" role="dialog" aria-labelledby="Mod_Elim_Usuario"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content rounded ">
+            <form id="Form_Eliminar_Usuario" name="Form_Eliminar_Usuario" method="POST"
+                action="../../Registro?Peticion=Eliminar_Usuario">
+                <!--Header-->
+                <div class="modal-header bg-dark d-block">
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="text-center text-white"><strong>Eliminar Usuario</strong></h4>
+                </div>
+                <!--/Header-->
+
+                <!--Body-->
+                <div class="modal-body mx-3 text-center">
+                    <p id="Usuario_Eliminar"></p>
+                    <input id="DEL_DOC_USER" name="DEL_DOC_USER" type="hidden">
+                </div>
+                <!--/Body-->
+
+                <!--Footer-->
+                <div class="modal-footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col d-flex flex-center mx-auto">
+                                <button id="btn_eliminar_Usuario" class="btn btn-secondary"
+                                    type="submit">Aceptar</button>
+                                <button id="btn_cancelarEliminar_Usuario" class="btn btn-secondary"
+                                    data-dismiss="modal" aria-label="Close">Cancelar</button>
+                                <i id="icon_loadEliminar_Usuario"
+                                    class="fa fa-spinner fa-spin d-none text-center mx-auto"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/Footer-->
+            </form>
+        </div>
+    </div>
+</div>
+<!--/Modal Eliminar Usuario-->

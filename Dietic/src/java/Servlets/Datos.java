@@ -5,8 +5,7 @@
  */
 package Servlets;
 
-import Controlador.controller_Usuario;
-import Modelos.Usuario;
+import Metodos.Json_Datos;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author clan-
  */
-public class Registro extends HttpServlet {
+public class Datos extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,10 +36,10 @@ public class Registro extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Registro</title>");
+            out.println("<title>Servlet Datos</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Registro at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet Datos at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -58,7 +57,13 @@ public class Registro extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.setContentType("application/json;charset=UTF-8");
+        String Peticion = request.getParameter("Peticion");
+        Json_Datos data = new Json_Datos();
+        
+        if (Peticion.equals("data_Usuarios")) {
+            response.getWriter().write(data.Json_Usuarios());
+        }
     }
 
     /**
@@ -72,45 +77,7 @@ public class Registro extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        String Peticion = request.getParameter("Peticion");
-
-        if (Peticion.equals("Registro_Usuario")) {
-            Usuario user = new Usuario();
-            controller_Usuario cuser = new controller_Usuario();
-
-            //user.setID_PERFIL_USER(Integer.valueOf(request.getParameter("ID_PERFIL_USER")));
-            user.setID_PERFIL_USER(1);
-            user.setESTADO_USER(1);
-            user.setNOMBRE_USER(request.getParameter("NOMBRE_USER"));
-            user.setAPELLIDOS_USER(request.getParameter("APELLIDOS_USER"));
-            user.setDOC_USER(request.getParameter("DOC_USER"));
-            user.setCORREO_USER(request.getParameter("CORREO_USER"));
-            user.setCELULAR_USER(request.getParameter("R_CELULAR_USER"));
-            user.setNICK_USER(request.getParameter("R_NICK_USER"));
-            user.setPASSWORD_USER(request.getParameter("R_PASSWORD_USER"));
-
-            boolean result = cuser.setUser(user);
-            if (result) {
-                response.getWriter().write("true");
-            } else {
-                response.getWriter().write("false");
-            }
-        }
-
-        if (Peticion.equals("Eliminar_Usuario")) {
-            Usuario user = new Usuario();
-            controller_Usuario cuser = new controller_Usuario();
-
-            user.setDOC_USER(request.getParameter("DEL_DOC_USER"));
-
-            boolean result = cuser.deleteUser(user);
-            if (result) {
-                response.getWriter().write("true");
-            } else {
-                response.getWriter().write("false");
-            }
-        }
+        processRequest(request, response);
     }
 
     /**
