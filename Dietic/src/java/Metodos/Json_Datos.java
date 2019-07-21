@@ -50,29 +50,4 @@ public class Json_Datos {
 
     }
 
-<<<<<<< HEAD
-=======
-    public String Json_Usuarios() {
-        JsonObject json = new JsonObject();
-        controller_Usuario cuser = new controller_Usuario();
-        List<Usuario> listaUsuarios = cuser.getUsers();
-
-        JsonArray array = new JsonArray();
-        for (Usuario x : listaUsuarios) {
-            JsonObject item = new JsonObject();
-
-            item.addProperty("DOC_USER", x.getDOC_USER());
-            item.addProperty("NICK_USER", x.getNICK_USER());
-            item.addProperty("NOMBRE_USER", x.getNOMBRE_USER());
-            item.addProperty("APELLIDOS_USER", x.getAPELLIDOS_USER());
-            item.addProperty("CELULAR_USER", x.getCELULAR_USER());
-            item.addProperty("CORREO_USER", x.getCORREO_USER());
-
-            array.add(item);
-        }
-        json.add("Usuarios", array);
-        return json.toString();
-
-    }
->>>>>>> 9701b6c2f638dd4acb2d156bca70bf2cdc8e57da
 }
