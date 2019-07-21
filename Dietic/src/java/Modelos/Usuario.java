@@ -9,104 +9,157 @@ package Modelos;
  *
  * @author clan-
  */
-public class Usuario { 
-    private String DOC_USER;
-    private String NICK_USER; 
-    private String PASSWORD_USER;
-    private String NOMBRE_USER; 
-    private String APELLIDOS_USER;
-    private String CELULAR_USER;
-    private String CORREO_USER; 
-    private int ID_PERFIL_USER;
-    private int ESTADO_USER; 
+public class Usuario {
+
+    private String identificacion;
+    private String usuario;
+    private String pwd;
+    private String nombres;
+    private String apellidos;
+    private String correo;
+    private int telefono;
+    private String direccion;
+    private String fecha_nacimiento;
+    private double talla;
+    private double peso;
+    private String perfil;
+    private String estado;
+    private String sexo;
 
     public Usuario() {
     }
 
-    public Usuario(String DOC_USER, String NICK_USER, String PASSWORD_USER, String NOMBRE_USER, String APELLIDOS_USER, String CELULAR_USER, String CORREO_USER, int ID_PERFIL_USER, int ESTADO_USER) {
-        this.DOC_USER = DOC_USER;
-        this.NICK_USER = NICK_USER;
-        this.PASSWORD_USER = PASSWORD_USER;
-        this.NOMBRE_USER = NOMBRE_USER;
-        this.APELLIDOS_USER = APELLIDOS_USER;
-        this.CELULAR_USER = CELULAR_USER;
-        this.CORREO_USER = CORREO_USER;
-        this.ID_PERFIL_USER = ID_PERFIL_USER;
-        this.ESTADO_USER = ESTADO_USER;
+    public Usuario(String identificacion, String usuario, String pwd, String nombres, String apellidos, String correo, int telefono, String direccion, String fecha_nacimiento, double talla, double peso, String perfil, String estado, String sexo) {
+        this.identificacion = identificacion;
+        this.usuario = usuario;
+        this.pwd = pwd;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.correo = correo;
+        this.telefono = telefono;
+        this.direccion = direccion;
+        this.fecha_nacimiento = fecha_nacimiento;
+        this.talla = talla;
+        this.peso = peso;
+        this.perfil = perfil;
+        this.estado = estado;
+        this.sexo = sexo;
     }
 
-    public String getDOC_USER() {
-        return DOC_USER;
+    public String getIdentificacion() {
+        return identificacion;
     }
 
-    public void setDOC_USER(String DOC_USER) {
-        this.DOC_USER = DOC_USER;
+    public void setIdentificacion(String identificacion) {
+        this.identificacion = identificacion;
     }
 
-    public String getNICK_USER() {
-        return NICK_USER;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setNICK_USER(String NICK_USER) {
-        this.NICK_USER = NICK_USER;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
-    public String getPASSWORD_USER() {
-        return PASSWORD_USER;
+    public String getPwd() {
+        return pwd;
     }
 
-    public void setPASSWORD_USER(String PASSWORD_USER) {
-        this.PASSWORD_USER = PASSWORD_USER;
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
     }
 
-    public String getNOMBRE_USER() {
-        return NOMBRE_USER;
+    public String getNombres() {
+        return nombres;
     }
 
-    public void setNOMBRE_USER(String NOMBRE_USER) {
-        this.NOMBRE_USER = NOMBRE_USER;
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
     }
 
-    public String getAPELLIDOS_USER() {
-        return APELLIDOS_USER;
+    public String getApellidos() {
+        return apellidos;
     }
 
-    public void setAPELLIDOS_USER(String APELLIDOS_USER) {
-        this.APELLIDOS_USER = APELLIDOS_USER;
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
-    public String getCELULAR_USER() {
-        return CELULAR_USER;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setCELULAR_USER(String CELULAR_USER) {
-        this.CELULAR_USER = CELULAR_USER;
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
-    public String getCORREO_USER() {
-        return CORREO_USER;
+    public int getTelefono() {
+        return telefono;
     }
 
-    public void setCORREO_USER(String CORREO_USER) {
-        this.CORREO_USER = CORREO_USER;
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
     }
 
-    public int getID_PERFIL_USER() {
-        return ID_PERFIL_USER;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setID_PERFIL_USER(int ID_PERFIL_USER) {
-        this.ID_PERFIL_USER = ID_PERFIL_USER;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
-    public int getESTADO_USER() {
-        return ESTADO_USER;
+    public String getFecha_nacimiento() {
+        return fecha_nacimiento;
     }
 
-    public void setESTADO_USER(int ESTADO_USER) {
-        this.ESTADO_USER = ESTADO_USER;
+    public void setFecha_nacimiento(String fecha_nacimiento) {
+        this.fecha_nacimiento = fecha_nacimiento;
+    }
+
+    public double getTalla() {
+        return talla;
+    }
+
+    public void setTalla(double talla) {
+        this.talla = talla;
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    public String getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(String perfil) {
+        this.perfil = perfil;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
     
     
-  
+
+    
+
 }

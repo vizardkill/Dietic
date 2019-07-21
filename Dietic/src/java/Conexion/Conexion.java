@@ -12,8 +12,28 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Conexion {
+    
+    private static Connection conexion = null;
 
     public static Connection getConexion() {
+      try {
+            //  Carga el driver de la base de datos
+            Class.forName("oracle.jdbc.OracleDriver");
+            String nombreUsuario = "admin_dietic";
+            String password = "123456";
+            String url = "jdbc:oracle:thin:@localhost:1521:XE";
+            conexion = DriverManager.getConnection(url, nombreUsuario, password);
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Exception: " + ex.getMessage());
+            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            System.out.println("Exception: " + ex.getMessage());
+            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return conexion;
+    }
+
+   /* public static Connection getConexion() {
         Connection conexion = null;
         // Librería de MySQL
         String driver = "com.mysql.cj.jdbc.Driver";
@@ -40,5 +60,5 @@ public class Conexion {
 
         return conexion;
     }
-
+*/
 }

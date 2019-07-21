@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Modelos;
+package DAO;
 
+import Modelos.Usuario;
 import java.util.List;
 
 /**
@@ -17,12 +18,12 @@ public interface IUsuario {
 
     public List<Usuario> getUser();
 
-    public boolean updateUser(Usuario user);
-
+    public boolean updateUser(Usuario user, String tipo);
+   
     public boolean deleteUser(Usuario user);
     
     //Procedimientos Almacenados
     public boolean P_Login(Usuario user);
     
-    public boolean P_ValidUser(String tipo, Usuario user);
+    public boolean F_ValidUser(String tipo, Usuario user);
 }
