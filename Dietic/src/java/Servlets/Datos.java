@@ -5,22 +5,19 @@
  */
 package Servlets;
 
-import Controlador.controller_Usuario;
 import Metodos.Json_Datos;
-import Modelos.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author clan-
  */
-public class Login extends HttpServlet {
+public class Datos extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,10 +36,10 @@ public class Login extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Login</title>");            
+            out.println("<title>Servlet Datos</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Login at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet Datos at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -60,44 +57,12 @@ public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("application/json;charset=UTF-8");
         String Peticion = request.getParameter("Peticion");
+        Json_Datos data = new Json_Datos();
         
-        
-         //************************************** Validaciones de la Tabla Usuario *********************************
-        if (Peticion.equals("ValidarNickUsuario")) {
-            Usuario user = new Usuario();
-            user.setNICK_USER(request.getParameter("R_NICK_USER"));
-            controller_Usuario cuser = new controller_Usuario();
-            boolean result = cuser.P_ValidUser(Peticion, user);
-            if (result) {
-                response.getWriter().write("false");
-            } else {
-                response.getWriter().write("true");
-            }
-        }
-
-        if (Peticion.equals("ValidarEmailUsuario")) {
-            Usuario user = new Usuario();
-            user.setCORREO_USER(request.getParameter("CORREO_USER"));
-            controller_Usuario cuser = new controller_Usuario();
-            boolean result = cuser.P_ValidUser(Peticion, user);
-            if (result) {
-                response.getWriter().write("false");
-            } else {
-                response.getWriter().write("true");
-            }
-        }
-
-        if (Peticion.equals("ValidarDocUsuario")) {
-            Usuario user = new Usuario();
-            user.setDOC_USER(request.getParameter("DOC_USER"));
-            controller_Usuario cuser = new controller_Usuario();
-            boolean result = cuser.P_ValidUser(Peticion, user);
-            if (result) {
-                response.getWriter().write("false");
-            } else {
-                response.getWriter().write("true");
-            }
+        if (Peticion.equals("data_Usuarios")) {
+            response.getWriter().write(data.Json_Usuarios());
         }
     }
 
@@ -112,26 +77,7 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession(true);
-        response.setContentType("text/html;charset=UTF-8");
-
-        
-        
-        Usuario user = new Usuario();
-        user.setUsuario(request.getParameter("form_login_username"));
-        user.setPwd(request.getParameter("form_login_pwd"));
-        controller_Usuario cuser = new controller_Usuario();
-        
-
-     
-        if (!cuser.P_Login(user)) {
-            response.getWriter().write("false");
-        } else {
-            session.setAttribute("username_usuario", user.getUsuario());
-            session.setAttribute("documento_usuario", user.getIdentificacion());
-            session.setAttribute("perfil_usuario", user.getPerfil());
-            request.getRequestDispatcher("redirect.jsp").forward(request, response);
-        }
+        processRequest(request, response);
     }
 
     /**
