@@ -2,9 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group>
             <file>file:/D:/Documents/Github/Dietic/Dietic/src/java/DAO/DAO_Usuario.java</file>
             <file>file:/D:/Documents/Github/Dietic/Dietic/src/java/Servlets/Edit.java</file>
         </group>
+=======
+        <group/>
+>>>>>>> 9701b6c2f638dd4acb2d156bca70bf2cdc8e57da
     </open-files>
 </project-private>

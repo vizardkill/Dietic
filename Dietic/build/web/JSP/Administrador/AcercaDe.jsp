@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <% if (session.getAttribute("username_usuario") == null) {
         response.sendRedirect("../../redirect.jsp");
     } else {
@@ -7,6 +8,14 @@
     }
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+=======
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<% if(session.getAttribute("DOC_USER") == null) 
+   {
+     response.sendRedirect("../index.html");
+   }
+%>
+>>>>>>> 9701b6c2f638dd4acb2d156bca70bf2cdc8e57da
 <!DOCTYPE html>
 <html>
 <%@include file="Head.jsp" %>
@@ -28,7 +37,13 @@
                         <img src="../../img/web/Index/logo-uni.png" alt="" class="img-fluid">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
+<<<<<<< HEAD
                                 <li class="breadcrumb-item"><a href="Inicio.jsp">Acerca De</a></li>
+=======
+                                <li class="breadcrumb-item"><a href="Inicio.jsp">Inicio</a></li>
+                                <li class="breadcrumb-item" aria-current="page">Universidad</li>
+                                <li class="breadcrumb-item active" aria-current="page">Acerca de</li>
+>>>>>>> 9701b6c2f638dd4acb2d156bca70bf2cdc8e57da
                             </ol>
                         </nav>
 

@@ -71,6 +71,7 @@ public class DAO_Usuario implements IUsuario {
             rs = stm.executeQuery(sql);
             while (rs.next()) {
                 Usuario u = new Usuario();
+<<<<<<< HEAD
                 u.setIdentificacion(rs.getString("identificacion"));
                 u.setUsuario(rs.getString("username"));
                 u.setNombres(rs.getString("nombres"));
@@ -84,6 +85,16 @@ public class DAO_Usuario implements IUsuario {
                 u.setPerfil(rs.getString("perfil"));
                 u.setEstado(rs.getString("estado"));
                 u.setSexo(rs.getString("sexo"));
+=======
+                u.setDOC_USER(rs.getString("DOC_USER"));
+                u.setNICK_USER(rs.getString("NICK_USER"));
+                u.setNOMBRE_USER(rs.getString("NOMBRE_USER"));
+                u.setAPELLIDOS_USER(rs.getString("APELLIDOS_USER"));
+                u.setCELULAR_USER(rs.getString("CELULAR_USER"));
+                u.setCORREO_USER(rs.getString("CORREO_USER"));
+                u.setID_PERFIL_USER(rs.getInt("ID_PERFIL_USER"));
+                u.setESTADO_USER(rs.getInt("ESTADO_USER"));
+>>>>>>> 9701b6c2f638dd4acb2d156bca70bf2cdc8e57da
                 listaUsuario.add(u);
             }
             stm.close();

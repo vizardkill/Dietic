@@ -5,6 +5,7 @@
         <servlet-class>Servlets.Login</servlet-class>
     </servlet>
     <servlet>
+<<<<<<< HEAD
         <servlet-name>Register</servlet-name>
         <servlet-class>Servlets.Register</servlet-class>
     </servlet>
@@ -36,9 +37,26 @@
         <servlet-name>Delete</servlet-name>
         <url-pattern>/Delete</url-pattern>
     </servlet-mapping>
+=======
+        <servlet-name>Registro</servlet-name>
+        <servlet-class>Servlets.Registro</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Datos</servlet-name>
+        <servlet-class>Servlets.Datos</servlet-class>
+    </servlet>
+>>>>>>> 9701b6c2f638dd4acb2d156bca70bf2cdc8e57da
     <servlet-mapping>
         <servlet-name>Edit</servlet-name>
         <url-pattern>/Edit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Registro</servlet-name>
+        <url-pattern>/Registro</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Datos</servlet-name>
+        <url-pattern>/Datos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

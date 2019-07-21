@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <% if (session.getAttribute("username_usuario") == null) {
         response.sendRedirect("../../redirect.jsp");
     } else {
@@ -6,6 +7,8 @@
         }  
     }
 %>
+=======
+>>>>>>> 9701b6c2f638dd4acb2d156bca70bf2cdc8e57da
 <header>
     <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
         <i class="fas fa-bars"></i>
@@ -15,7 +18,11 @@
         <div class="sidebar-content">
             <!--Logo-->
             <div class="sidebar-brand">
+<<<<<<< HEAD
                 <a href=""> <img class=" img-fluid" src="../../img/web/Index/Logo.png" alt=""></a>
+=======
+                <a href=""> <img class=" img-fluid" src="../../img/web/Index/logo-white.png" alt=""></a>
+>>>>>>> 9701b6c2f638dd4acb2d156bca70bf2cdc8e57da
                 <div id="close-sidebar">
                     <i class="fas fa-times"></i>
                 </div>
@@ -25,12 +32,21 @@
             <!--Header-->
             <div class="sidebar-header">
                 <div class="user-pic rounded-circle">
+<<<<<<< HEAD
                     <a href="Inicio.jsp"><img class="img-fluid img-thumbnail rounded-circle"
                             src="../../img/web/Sidebar/user.jpg" alt="User picture"></a>
                 </div>
                 <div class="user-info">
                     <span class="user-name">
                         <strong>${sessionScope['username_usuario']}</strong>
+=======
+                    <a href="Inicio.jsp"><img class="img-fluid img-thumbnail rounded-circle" src="../../img/web/Sidebar/user.jpg"
+                        alt="User picture"></a>
+                </div>
+                <div class="user-info">
+                    <span class="user-name">
+                        <strong>${sessionScope['NICK_USER']}</strong>
+>>>>>>> 9701b6c2f638dd4acb2d156bca70bf2cdc8e57da
                     </span>
                     <span class="user-role">Administrador</span>
                     <span class="user-status">
@@ -74,26 +90,48 @@
 
                     <li class="sidebar-dropdown">
                         <a href="#">
+<<<<<<< HEAD
                             <i class="fab fa-whmcs"></i>
                             <span>Administraci&#243n</span>
+=======
+                                <i class="fab fa-whmcs"></i>
+                            <span>Administracion</span>
+>>>>>>> 9701b6c2f638dd4acb2d156bca70bf2cdc8e57da
                         </a>
                         <div class="sidebar-submenu">
                             <ul>
                                 <li>
                                     <a href="Usuarios.jsp">Usuarios</a>
                                 </li>
+<<<<<<< HEAD
+=======
+                                <li>
+                                    <a href="AcercaDe.jsp">Acerca de</a>
+                                </li>
+>>>>>>> 9701b6c2f638dd4acb2d156bca70bf2cdc8e57da
                             </ul>
                         </div>
                     </li>
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 9701b6c2f638dd4acb2d156bca70bf2cdc8e57da
                     <li class="header-menu">
                         <span>Extra</span>
                     </li>
 
                     </li>
                     <li>
+<<<<<<< HEAD
                         <a href="AcercaDe.jsp">
                             <i class="fa fa-book"></i><span>Acerca De</span>
+=======
+                        <a href="#">
+                            <i class="fa fa-book"></i>
+                            <span>Documentaci&#243n</span>
+>>>>>>> 9701b6c2f638dd4acb2d156bca70bf2cdc8e57da
                         </a>
                     </li>
                 </ul>
@@ -126,4 +164,8 @@
 
 
     </nav>
+<<<<<<< HEAD
 </header>
+=======
+</header>
+>>>>>>> 9701b6c2f638dd4acb2d156bca70bf2cdc8e57da
