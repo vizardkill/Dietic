@@ -17,11 +17,12 @@ import java.util.List;
  */
 public class controller_Usuario {
 
-    public boolean setUser(Usuario user) {
-        SecurityPass md5 = new SecurityPass();
-        String hash = md5.getMD5(user.getPwd());
-        user.setPwd(hash);
-
+    public boolean setUser(Usuario user, String tipo) {
+        if (tipo.equals("Registro_Usuario_System")) {
+            SecurityPass md5 = new SecurityPass();
+            String hash = md5.getMD5(user.getPwd());
+            user.setPwd(hash);
+        }
         IUsuario udao = new DAO_Usuario();
         return udao.setUser(user);
     }
@@ -38,7 +39,7 @@ public class controller_Usuario {
 
     public List<Usuario> getUsers() {
         IUsuario udao = new DAO_Usuario();
-        return udao.getUser();  
+        return udao.getUser();
     }
 
     //**********************************PROCEDIMIENTOS ALMACENADOS**************************************

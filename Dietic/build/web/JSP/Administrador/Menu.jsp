@@ -2,7 +2,7 @@
         response.sendRedirect("../../redirect.jsp");
     } else {
         if (session.getAttribute("perfil_usuario").equals("2")) {
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("../../index.jsp");
         }  
     }
 %>
@@ -70,6 +70,10 @@
                         <a href="Inicio.jsp">
                             <i class="fa fa-home"></i>
                             <span>Inicio</span>
+                        </a>
+                        <a href="Recetas.jsp">
+                            <i class="fas fa-seedling"></i>
+                            <span>Recetas</span>
                         </a>
                     </li>
 

@@ -101,7 +101,6 @@ public class DAO_Usuario implements IUsuario {
 
         if (tipo.equals("System")) {
             String sql = "UPDATE USUARIOS SET "
-                    + "identificacion          = ?, "
                     + "username                = ?, "
                     + "pwd                     = ?, "
                     + "nombres                 = ?, "
@@ -116,17 +115,16 @@ public class DAO_Usuario implements IUsuario {
             try {
                 con = Conexion.getConexion();
                 try (PreparedStatement ps = con.prepareStatement(sql)) {
-                    ps.setString(1, user.getIdentificacion());
-                    ps.setString(2, user.getUsuario());
-                    ps.setString(3, user.getPwd());
-                    ps.setString(4, user.getNombres());
-                    ps.setString(5, user.getApellidos());
-                    ps.setString(6, user.getCorreo());
-                    ps.setInt(7, user.getTelefono());
-                    ps.setInt(8, Integer.valueOf(user.getPerfil()));
-                    ps.setInt(9, Integer.valueOf(user.getEstado()));
-                    ps.setInt(10, Integer.valueOf(user.getSexo()));
-                    ps.setString(11, user.getIdentificacion());
+                    ps.setString(1, user.getUsuario());
+                    ps.setString(2, user.getPwd());
+                    ps.setString(3, user.getNombres());
+                    ps.setString(4, user.getApellidos());
+                    ps.setString(5, user.getCorreo());
+                    ps.setInt(6, user.getTelefono());
+                    ps.setInt(7, Integer.valueOf(user.getPerfil()));
+                    ps.setInt(8, Integer.valueOf(user.getEstado()));
+                    ps.setInt(9, Integer.valueOf(user.getSexo()));
+                    ps.setString(10, user.getIdentificacion());
                     ps.executeUpdate();
                     ps.close();
                 }
@@ -136,7 +134,6 @@ public class DAO_Usuario implements IUsuario {
                 return false;
             }
         }
-
         return true;
     }
 

@@ -5,7 +5,9 @@
  */
 package Metodos;
 
+import Controlador.controller_Receta;
 import Controlador.controller_Usuario;
+import Modelos.Receta;
 import Modelos.Usuario;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -47,7 +49,29 @@ public class Json_Datos {
         }
         json.add("v_Usuarios", array);
         return json.toString();
-
+    }
+    
+    public String Json_Recetas() {
+         JsonObject json = new JsonObject();
+         controller_Receta crec = new controller_Receta();
+         
+         List<Receta> lista_receta = crec.getReceta();
+         
+         JsonArray array = new JsonArray();
+         for (Receta x: lista_receta) {
+             JsonObject item = new JsonObject();
+             
+             item.addProperty("id", x.getId());
+             item.addProperty("usuario", x.getUsuario());
+             item.addProperty("descripcion", x.getDescripcion());
+             
+             array.add(item);
+            
+        }
+        json.add("RECETAS", array);
+        return json.toString();
+         
+    
     }
 
 }

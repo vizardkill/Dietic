@@ -1,7 +1,8 @@
+<% if (session.getAttribute("username_usuario") == null) {
         response.sendRedirect("../../redirect.jsp");
     } else {
         if (session.getAttribute("perfil_usuario").equals("2")) {
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("../../index.jsp");
         }  
     }
 %>

@@ -5,7 +5,9 @@
  */
 package Servlets;
 
+import Controlador.controller_Receta;
 import Controlador.controller_Usuario;
+import Modelos.Receta;
 import Modelos.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,7 +15,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -86,6 +87,18 @@ public class Delete extends HttpServlet {
             } else {
                 response.getWriter().write("false");
             }   
+        }
+        
+        if (Peticion.equals("Eliminar_Receta")) {
+            Receta rec = new Receta();     
+            rec.setId(Integer.valueOf(request.getParameter("form_elim_id_receta")));
+            controller_Receta crec = new controller_Receta();
+            
+            if (crec.deleteReceta(rec)) {
+                response.getWriter().write("true");
+            } else {
+                response.getWriter().write("false");
+            }              
         }
     }
 

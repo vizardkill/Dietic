@@ -40,14 +40,7 @@
         <servlet-name>Edit</servlet-name>
         <url-pattern>/Edit</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Registro</servlet-name>
-        <url-pattern>/Registro</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Datos</servlet-name>
-        <url-pattern>/Datos</url-pattern>
-    </servlet-mapping>
+
     <session-config>
         <session-timeout>
             30

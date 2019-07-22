@@ -5,7 +5,9 @@
  */
 package Servlets;
 
+import Controlador.controller_Receta;
 import Controlador.controller_Usuario;
+import Modelos.Receta;
 import Modelos.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -92,9 +94,9 @@ public class Edit extends HttpServlet {
                 user.setPwd(request.getParameter("form_edit_pwd_system"));
             }
 
-            if (request.getParameter("Tipo").equals("Cliente")) {
+            if (Tipo.equals("Client")) {
                 user.setPerfil(request.getParameter("form_edit_perfil_client"));
-                user.setEstado(request.getParameter("form_edit_estado_cliente"));
+                user.setEstado(request.getParameter("form_edit_estado_client"));
                 user.setSexo(request.getParameter("form_edit_sexo_client"));
                 user.setNombres(request.getParameter("form_edit_nombres_client"));
                 user.setApellidos(request.getParameter("form_edit_apellidos_client"));
@@ -109,6 +111,21 @@ public class Edit extends HttpServlet {
             controller_Usuario cuser = new controller_Usuario();
 
             if (cuser.updateUser(user,Tipo)) {
+                response.getWriter().write("true");
+            } else {
+                response.getWriter().write("false");
+            }
+        }
+        
+        if (Peticion.equals("Editar_Receta")) {
+            Receta rec = new Receta();
+            rec.setId(Integer.valueOf(request.getParameter("form_edit_id_receta")));
+            rec.setUsuario(request.getParameter("form_edit_usuario_receta"));
+            rec.setDescripcion(request.getParameter("form_edit_desc_receta"));
+            
+            controller_Receta crec = new controller_Receta();
+            
+            if (crec.updateReceta(rec)) {
                 response.getWriter().write("true");
             } else {
                 response.getWriter().write("false");

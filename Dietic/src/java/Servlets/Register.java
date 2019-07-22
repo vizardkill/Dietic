@@ -5,7 +5,9 @@
  */
 package Servlets;
 
+import Controlador.controller_Receta;
 import Controlador.controller_Usuario;
+import Modelos.Receta;
 import Modelos.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -37,7 +39,7 @@ public class Register extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Register</title>");            
+            out.println("<title>Servlet Register</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet Register at " + request.getContextPath() + "</h1>");
@@ -58,45 +60,126 @@ public class Register extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         response.setContentType("text/html;charset=UTF-8");
         String Peticion = request.getParameter("Peticion");
+        String Tipo = request.getParameter("Tipo");
 
         //************************************** Validaciones de la Tabla Usuario *********************************
-        if (Peticion.equals("ValidarNickUsuario")) {
-            Usuario user = new Usuario();
-            user.setUsuario(request.getParameter("form_reg_username"));
-            controller_Usuario cuser = new controller_Usuario();
-            if (cuser.F_ValidUser(Peticion, user)) {
-                response.getWriter().write("false");
-            } else {
-                response.getWriter().write("true");
+        if (Tipo.equals("system")) {
+            if (Peticion.equals("ValidarNickUsuario")) {
+                Usuario user = new Usuario();
+                user.setUsuario(request.getParameter("form_reg_username_system"));
+                controller_Usuario cuser = new controller_Usuario();
+                if (cuser.F_ValidUser(Peticion, user)) {
+                    response.getWriter().write("false");
+                } else {
+                    response.getWriter().write("true");
+                }
             }
+
+            if (Peticion.equals("ValidarEmailUsuario")) {
+                Usuario user = new Usuario();
+                user.setCorreo(request.getParameter("form_reg_correo_system"));
+                controller_Usuario cuser = new controller_Usuario();
+                cuser.F_ValidUser(Peticion, user);
+                if (cuser.F_ValidUser(Peticion, user)) {
+                    response.getWriter().write("false");
+                } else {
+                    response.getWriter().write("true");
+                }
+            }
+
+            if (Peticion.equals("ValidarDocUsuario")) {
+                Usuario user = new Usuario();
+                user.setIdentificacion(request.getParameter("form_reg_identificacion_system"));
+                controller_Usuario cuser = new controller_Usuario();
+                cuser.F_ValidUser(Peticion, user);
+                if (cuser.F_ValidUser(Peticion, user)) {
+                    response.getWriter().write("false");
+                } else {
+                    response.getWriter().write("true");
+                }
+            }
+
+        }
+        
+        if (Tipo.equals("client")) {
+            if (Peticion.equals("ValidarNickUsuario")) {
+                Usuario user = new Usuario();
+                user.setUsuario(request.getParameter("form_reg_username_client"));
+                controller_Usuario cuser = new controller_Usuario();
+                if (cuser.F_ValidUser(Peticion, user)) {
+                    response.getWriter().write("false");
+                } else {
+                    response.getWriter().write("true");
+                }
+            }
+
+            if (Peticion.equals("ValidarEmailUsuario")) {
+                Usuario user = new Usuario();
+                user.setCorreo(request.getParameter("form_reg_correo_client"));
+                controller_Usuario cuser = new controller_Usuario();
+                cuser.F_ValidUser(Peticion, user);
+                if (cuser.F_ValidUser(Peticion, user)) {
+                    response.getWriter().write("false");
+                } else {
+                    response.getWriter().write("true");
+                }
+            }
+
+            if (Peticion.equals("ValidarDocUsuario")) {
+                Usuario user = new Usuario();
+                user.setIdentificacion(request.getParameter("form_reg_identificacion_client"));
+                controller_Usuario cuser = new controller_Usuario();
+                cuser.F_ValidUser(Peticion, user);
+                if (cuser.F_ValidUser(Peticion, user)) {
+                    response.getWriter().write("false");
+                } else {
+                    response.getWriter().write("true");
+                }
+            }
+            
+        }
+        
+        if (Tipo.equals("edit_system")) {
+            if (Peticion.equals("ValidarNickUsuario")) {
+                Usuario user = new Usuario();
+                user.setUsuario(request.getParameter("form_edit_username_system"));
+                controller_Usuario cuser = new controller_Usuario();
+                if (cuser.F_ValidUser(Peticion, user)) {
+                    response.getWriter().write("false");
+                } else {
+                    response.getWriter().write("true");
+                }
+            }
+
+            if (Peticion.equals("ValidarEmailUsuario")) {
+                Usuario user = new Usuario();
+                user.setCorreo(request.getParameter("form_edit_correo_system"));
+                controller_Usuario cuser = new controller_Usuario();
+                cuser.F_ValidUser(Peticion, user);
+                if (cuser.F_ValidUser(Peticion, user)) {
+                    response.getWriter().write("false");
+                } else {
+                    response.getWriter().write("true");
+                }
+            }
+
+            if (Peticion.equals("ValidarDocUsuario")) {
+                Usuario user = new Usuario();
+                user.setIdentificacion(request.getParameter("form_edit_identificacion_system"));
+                controller_Usuario cuser = new controller_Usuario();
+                cuser.F_ValidUser(Peticion, user);
+                if (cuser.F_ValidUser(Peticion, user)) {
+                    response.getWriter().write("false");
+                } else {
+                    response.getWriter().write("true");
+                }
+            }
+            
         }
 
-        if (Peticion.equals("ValidarEmailUsuario")) {
-            Usuario user = new Usuario();
-            user.setCorreo(request.getParameter("form_reg_correo"));
-            controller_Usuario cuser = new controller_Usuario();
-            cuser.F_ValidUser(Peticion, user);
-            if (cuser.F_ValidUser(Peticion, user)) {
-                response.getWriter().write("false");
-            } else {
-                response.getWriter().write("true");
-            }
-        }
-
-        if (Peticion.equals("ValidarDocUsuario")) {
-            Usuario user = new Usuario();
-            user.setIdentificacion(request.getParameter("form_reg_identificacion"));
-            controller_Usuario cuser = new controller_Usuario();
-            cuser.F_ValidUser(Peticion, user);
-            if (cuser.F_ValidUser(Peticion, user)) {
-                response.getWriter().write("false");
-            } else {
-                response.getWriter().write("true");
-            }
-        }
     }
 
     /**
@@ -114,28 +197,64 @@ public class Register extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String Peticion = request.getParameter("Peticion");
 
-        if (Peticion.equals("Registro_Usuario")) {
+        if (Peticion.equals("Registro_Usuario_System")) {
             Usuario user = new Usuario();
-            user.setPerfil(request.getParameter("form_reg_perfil"));
-            user.setEstado(request.getParameter("form_reg_estado"));
-            user.setSexo(request.getParameter("form_reg_sexo"));
-            user.setNombres(request.getParameter("form_reg_nombres"));
-            user.setApellidos(request.getParameter("form_reg_apellidos"));
-            user.setIdentificacion(request.getParameter("form_reg_identificacion"));
-            user.setCorreo(request.getParameter("form_reg_correo"));
-            user.setTelefono(Integer.valueOf(request.getParameter("form_reg_telefono")));
-            user.setUsuario(request.getParameter("form_reg_username"));
-            user.setPwd(request.getParameter("form_reg_pwd"));
-            
+            user.setPerfil(request.getParameter("form_reg_perfil_system"));
+            user.setEstado(request.getParameter("form_reg_estado_system"));
+            user.setSexo(request.getParameter("form_reg_sexo_system"));
+            user.setNombres(request.getParameter("form_reg_nombres_system"));
+            user.setApellidos(request.getParameter("form_reg_apellidos_system"));
+            user.setIdentificacion(request.getParameter("form_reg_identificacion_system"));
+            user.setCorreo(request.getParameter("form_reg_correo_system"));
+            user.setTelefono(Integer.parseInt(request.getParameter("form_reg_telefono_system")));
+            user.setUsuario(request.getParameter("form_reg_username_system"));
+            user.setPwd(request.getParameter("form_reg_pwd_system"));
+
             controller_Usuario cuser = new controller_Usuario();
 
-            if (cuser.setUser(user)) {
+            if (cuser.setUser(user, Peticion)) {
                 response.getWriter().write("true");
             } else {
                 response.getWriter().write("false");
             }
         }
-        
+
+        if (Peticion.equals("Registro_Usuario_Client")) {
+            Usuario user = new Usuario();
+            user.setEstado(request.getParameter("form_reg_estado_client"));
+            user.setPerfil(request.getParameter("form_reg_perfil_client"));
+            user.setSexo(request.getParameter("form_reg_sexo_client"));
+            user.setNombres(request.getParameter("form_reg_nombres_client"));
+            user.setApellidos(request.getParameter("form_reg_apellidos_client"));
+            user.setIdentificacion(request.getParameter("form_reg_identificacion_client"));
+            user.setCorreo(request.getParameter("form_reg_correo_client"));
+            user.setTelefono(Integer.parseInt(request.getParameter("form_reg_telefono_client")));
+            user.setTalla(Integer.valueOf(request.getParameter("form_reg_talla_client")));
+            user.setPeso(Integer.valueOf(request.getParameter("form_reg_peso_client")));
+
+            controller_Usuario cuser = new controller_Usuario();
+
+            if (cuser.setUser(user,Peticion)) {
+                response.getWriter().write("true");
+            } else {
+                response.getWriter().write("false");
+            }
+        }
+
+        if (Peticion.equals("Registro_Receta")) {
+            Receta rec = new Receta();
+            rec.setUsuario(request.getParameter("form_reg_usuario_receta"));
+            rec.setDescripcion(request.getParameter("form_reg_desc_receta"));
+
+            controller_Receta crec = new controller_Receta();
+
+            if (crec.setReceta(rec)) {
+                response.getWriter().write("true");
+            } else {
+                response.getWriter().write("false");
+            }
+        }
+
     }
 
     /**

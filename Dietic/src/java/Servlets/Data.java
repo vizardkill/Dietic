@@ -58,13 +58,16 @@ public class Data extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession(true);
         response.setContentType("application/json;charset=UTF-8");
         String Peticion = request.getParameter("Peticion");
         Json_Datos data = new Json_Datos();
         
         if (Peticion.equals("data_usuarios")) {
             response.getWriter().write(data.Json_Usuarios());
+        }
+        
+        if (Peticion.equals("data_recetas")) {
+            response.getWriter().write(data.Json_Recetas());
         }
     }
 

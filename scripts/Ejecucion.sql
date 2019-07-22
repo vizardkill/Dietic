@@ -4,3 +4,5 @@ START D:\Documents\Github\Dietic\scripts\Reglas.sql
 START D:\Documents\Github\Dietic\scripts\Procedures.sql
 START D:\Documents\Github\Dietic\scripts\Vistas.sql
 START D:\Documents\Github\Dietic\scripts\Datos.sql
+START D:\Documents\Github\Dietic\scripts\Indices.sql
+START D:\Documents\Github\Dietic\scripts\Triggers.sql

@@ -44,14 +44,14 @@
             </div>
         </div>
 
-        <!--Modal de Registro de Usuario-->
-        <div class="modal fade" id="mod_form_reg_usuario" tabindex="-1" role="dialog"
-            aria-labelledby="mod_form_reg_usuario" aria-hidden="true">
+        <!--Modal de Registro de Usuario del Sistema-->
+        <div class="modal fade" id="mod_form_reg_usuario_system" tabindex="-1" role="dialog"
+            aria-labelledby="mod_form_reg_usuario_system" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content rounded ">
 
-                    <form id="form_reg_usuario" name="form_reg_usuario" method="POST"
-                        action="Register?Peticion=Registro_Usuario">
+                    <form id="form_reg_usuario_system" name="form_reg_usuario_system" method="POST"
+                        action="Register?Peticion=Registro_Usuario_System">
                         <!--Header-->
                         <div class="modal-header bg-dark d-block">
                             <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
@@ -64,14 +64,14 @@
                         <div class="modal-body mx-3">
                             <div class="container">
                                 <div class="row">
-                                    <input type="hidden" id="form_reg_perfil" name="form_reg_perfil" value="2">
-                                    <input type="hidden" id="form_reg_estado" name="form_reg_estado" value="1">
+                                    <input type="hidden" id="form_reg_perfil_system" name="form_reg_perfil_system" value="2">
+                                    <input type="hidden" id="form_reg_estado_system" name="form_reg_estado_system" value="1">
 
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="form_reg_sexo">Sexo</label>
-                                            <select id="form_reg_sexo"
-                                                name="form_reg_sexo"
+                                            <label for="form_reg_sexo_system">Sexo</label>
+                                            <select id="form_reg_sexo_system"
+                                                name="form_reg_sexo_system"
                                                 class="browser-default custom-select form-control">
                                                 <option value="">Seleccione su sexo</option>
                                                 <option value="1">Masculino</option>
@@ -83,53 +83,53 @@
                                     <div class="col-12">
                                         <div class="md-form form-group">
                                             <i class="fa fa-user-circle prefix"></i>
-                                            <input type="text" id="form_reg_nombres" name="form_reg_nombres"
-                                                class="form-control" aria-describedby="form_reg_nombres">
-                                            <label for="form_reg_nombres">Nombres</label>
+                                            <input type="text" id="form_reg_nombres_system" name="form_reg_nombres_system"
+                                                class="form-control" aria-describedby="form_reg_nombres_system">
+                                            <label for="form_reg_nombres_system">Nombres</label>
                                         </div>
                                     </div>
 
                                     <div class="col-12">
                                         <div class="md-form form-group">
                                             <i class="fa fa-user-circle prefix"></i>
-                                            <input type="text" id="form_reg_apellidos" name="form_reg_apellidos"
-                                                class="form-control" aria-describedby="form_reg_apellidos">
-                                            <label for="form_reg_apellidos">Apellidos</label>
+                                            <input type="text" id="form_reg_apellidos_system" name="form_reg_apellidos_system"
+                                                class="form-control" aria-describedby="form_reg_apellidos_system">
+                                            <label for="form_reg_apellidos_system">Apellidos</label>
                                         </div>
                                     </div>
 
                                     <div class="col-12">
                                         <div class="md-form form-group">
                                             <i class="fas fa-address-card prefix"></i>
-                                            <input type="text" id="form_reg_identificacion"
-                                                name="form_reg_identificacion" class="form-control"
-                                                aria-describedby="form_reg_identificacion">
-                                            <label for="form_reg_identificacion">Numero de Identificación</label>
+                                            <input type="text" id="form_reg_identificacion_system"
+                                                name="form_reg_identificacion_system" class="form-control"
+                                                aria-describedby="form_reg_identificacion_system">
+                                            <label for="form_reg_identificacion_system">Numero de Identificación</label>
                                         </div>
                                     </div>
 
                                     <div class="col-12">
                                         <div class="md-form form-group">
                                             <i class="fas fa-envelope prefix"></i>
-                                            <input type="email" id="form_reg_correo" name="form_reg_correo"
-                                                class="form-control" aria-describedby="form_reg_correo">
-                                            <label for="form_reg_correo">Correo electroníco</label>
+                                            <input type="email" id="form_reg_correo_system" name="form_reg_correo_system"
+                                                class="form-control" aria-describedby="form_reg_correo_system">
+                                            <label for="form_reg_correo_system">Correo electroníco</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="md-form form-group">
                                             <i class="fas fa-mobile-alt prefix"></i>
-                                            <input type="number" id="form_reg_telefono" name="form_reg_telefono"
-                                                class="form-control" aria-describedby="form_reg_telefono">
-                                            <label for="form_reg_telefono">Telefono</label>
+                                            <input type="number" id="form_reg_telefono_system" name="form_reg_telefono_system"
+                                                class="form-control" aria-describedby="form_reg_telefono_system">
+                                            <label for="form_reg_telefono_system">Telefono</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="md-form form-group">
                                             <i class="fa fa-user prefix"></i>
-                                            <input type="text" id="form_reg_username" name="form_reg_username"
-                                                class="form-control" aria-describedby="form_reg_username">
-                                            <label for="form_reg_username">Usuario</label>
+                                            <input type="text" id="form_reg_username_system" name="form_reg_username_system"
+                                                class="form-control" aria-describedby="form_reg_username_system">
+                                            <label for="form_reg_username_system">Usuario</label>
                                         </div>
                                     </div>
                                 </div>
@@ -137,17 +137,17 @@
                                     <div class="col-12">
                                         <div class="md-form form-group">
                                             <i class="fa fa-lock prefix"></i>
-                                            <input type="password" id="form_reg_pwd" name="form_reg_pwd"
+                                            <input type="password" id="form_reg_pwd_system" name="form_reg_pwd_system"
                                                 class="form-control">
-                                            <label for="form_reg_pwd">Contraseña</label>
+                                            <label for="form_reg_pwd_system">Contraseña</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="md-form form-group">
                                             <i class="fa fa-lock prefix"></i>
-                                            <input type="password" id="form_reg_pwd_2" name="form_reg_pwd_2"
+                                            <input type="password" id="form_reg_pwd_2_system" name="form_reg_pwd_2_system"
                                                 class="form-control">
-                                            <label for="form_reg_pwd_2">Confirmar contraseña</label>
+                                            <label for="form_reg_pwd_2_system">Confirmar contraseña</label>
                                         </div>
                                     </div>
                                 </div>
@@ -159,9 +159,9 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col d-flex flex-center mx-auto">
-                                        <button id="btn_submit_form_reg_usuario" class="btn btn-dark-green"
+                                        <button id="btn_submit_form_reg_usuario_system" class="btn btn-dark-green"
                                             type="submit">Registrarse</button>
-                                        <i id="icon_load_form_reg_usuario"
+                                        <i id="icon_load_form_reg_usuario_system"
                                             class="fa fa-spinner fa-spin d-none text-center mx-auto"></i>
                                     </div>
                                 </div>
@@ -217,7 +217,7 @@
                                 <div class="row">
                                     <div class="col-12 text-center">
                                         <p><a href="" data-toggle="modal"
-                                                data-target="#mod_form_reg_usuario"><strong>¿No
+                                                data-target="#mod_form_reg_usuario_system"><strong>¿No
                                                     tienes una cuenta? Registrate</strong></a></p>
                                     </div>
                                 </div>

@@ -2,7 +2,7 @@
         response.sendRedirect("../../redirect.jsp");
     } else {
         if (session.getAttribute("perfil_usuario").equals("2")) {
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("../../index.jsp");
         }  
     }
 %>
@@ -55,7 +55,7 @@
                         <div class="col">
                             <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
                                 <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal"
-                                    data-target="#mod_form_reg_usuario">Registrar
+                                    data-target="#mod_form_reg_usuario_system">Registrar
                                     Usuario</button>
                             </div>
                         </div>
