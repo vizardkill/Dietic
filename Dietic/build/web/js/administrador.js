@@ -45,6 +45,10 @@ $(document).ready(function () {
             $.each(Data.v_Usuarios, function (i, item) {
                 $("#form_reg_usuario_receta").append('<option value=' + item.identificacion + '>' + item.nombres + ' ' + item.apellidos + '</option>');
             });
+
+            $.each(Data.v_Usuarios, function (i, item) {
+                $("#form_edit_usuario_receta").append('<option value=' + item.identificacion + '>' + item.nombres + ' ' + item.apellidos + '</option>');
+            });
         },
         error: function (response) {
             alert('Error interno con el servidor, intentalo de nuevo más tarde')
@@ -272,12 +276,11 @@ $(document).ready(function () {
                 },
                 success: function (response) {
                     if (response == 'true') {
+                        $('#table_usuarios').DataTable().ajax.reload();
 
                         $("#form_reg_usuario_client")[0].reset();
                         $("#form_reg_usuario_client .form-control").removeClass('is-valid');
-                        $('#table_usuarios').DataTable().ajax.reload();
-
-
+                        
                         $('#mod_form_reg_usuario_client').modal('hide');
                         $('#mod_success').modal('show');
                         $('#msg_mod_success').text('Usuario registrado con éxito');
@@ -374,10 +377,11 @@ $(document).ready(function () {
                 },
                 success: function (response) {
                     if (response == 'true') {
+                        $('#table_usuarios').DataTable().ajax.reload();
 
                         $("#form_edit_usuario_system")[0].reset();
                         $("#form_edit_usuario_system .form-control").removeClass('is-valid');
-                        $('#table_usuarios').DataTable().ajax.reload();
+                        
 
 
                         $('#mod_form_edit_usuario_system').modal('hide');
@@ -468,12 +472,11 @@ $(document).ready(function () {
                 },
                 success: function (response) {
                     if (response == 'true') {
+                        $('#table_recetas').DataTable().ajax.reload();
 
                         $("#form_reg_receta")[0].reset();
                         $("#form_reg_receta .form-control").removeClass('is-valid');
-                        $('#table_recetas').DataTable().ajax.reload();
-
-
+                        
                         $('#mod_form_reg_receta').modal('hide');
                         $('#mod_success').modal('show');
                         $('#msg_mod_success').text('Receta registrado con éxito');
@@ -533,6 +536,64 @@ $(document).ready(function () {
                 $('#btn_cancel_form_elim_receta').removeClass('d-none').addClass('d-block');
             }
         });
+    });
+
+    //Validacion del Formulario la modificacion de una Receta
+    $('#form_edit_receta').validate({
+        rules: {
+            form_edit_usuario_receta: { required: true },
+            form_edit_desc_receta: { required: true }
+        },
+        messages: {
+            form_edit_usuario_receta: {
+                required: 'El campo es requerido'
+            },
+            form_edit_desc_receta: {
+                required: 'El campo es requerido'
+            }
+        },
+
+        submitHandler: function () {
+            $.ajax({
+                url: $("#form_edit_receta").attr('action'),
+                type: $("#form_edit_receta").attr('method'),
+                data: $("#form_edit_receta").serialize(),
+                dataType: "text",
+
+                beforeSend: function () {
+                    $('#icon_load_form_edit_receta').removeClass('d-none').addClass('d-block');
+                    $('#btn_submit_form_edit_receta').removeClass('d-block').addClass('d-none');
+                },
+                success: function (response) {
+                    if (response == 'true') {
+                        $('#table_recetas').DataTable().ajax.reload();
+
+                        $("#form_edit_receta")[0].reset();
+                        $("#form_edit_receta .form-control").removeClass('is-valid');
+                        
+
+
+                        $('#mod_form_edit_receta').modal('hide');
+                        $('#mod_success').modal('show');
+                        $('#msg_mod_success').text('Receta modificada con éxito');
+
+                        function ShowSucess() {
+                            $('#mod_success').modal('hide');
+                        } setTimeout(ShowSucess, 4000);
+
+                    }
+                },
+                error: function (response) {
+                    console.log(response);
+                    alert('Error con el servidor, por favor intentalo de nuevo mas tarde');
+                },
+                complete: function () {
+                    $('#icon_load_form_edit_receta').removeClass('d-block').addClass('d-none');
+                    $('#btn_submit_form_edit_receta').removeClass('d-none').addClass('d-block');
+                }
+            });
+        }
+
     });
 
     //################################## Seccion extendida para adicionar configuracion a la Tabla de Usuarios
@@ -759,18 +820,14 @@ $(document).ready(function () {
 
         $('#mod_form_elim_receta').modal('show');
     });
-    // $(document).on('click', "#btn_mod_usuario", function () {
-    //     var data = table_usuarios.row($(this).parents('tr')).data();
+    $(document).on('click', "#btn_mod_receta", function () {
+        var data = table_recetas.row($(this).parents('tr')).data();
 
-    //     $('#form_edit_nombres_system').val(data.nombres);
-    //     $('#form_edit_apellidos_system').val(data.apellidos);
-    //     $('#form_edit_apellidos_system').val(data.apellidos);
-    //     $('#form_edit_identificacion_system').val(data.identificacion);
-    //     $('#form_edit_correo_system').val(data.correo);
-    //     $('#form_edit_telefono_system').val(data.telefono);
-    //     $('#form_edit_username_system').val(data.username);
+        $('#form_edit_id_receta').val(data.id);
+        $('#form_edit_usuario_receta').val(data.usuario);
+        $('#form_edit_desc_receta').val(data.descripcion);
 
 
-    //     $('#mod_form_edit_usuario_system').modal('show');
-    // });
+        $('#mod_form_edit_receta').modal('show');
+    });
 });

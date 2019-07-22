@@ -484,7 +484,6 @@
                 <div class="modal-body mx-3">
                     <div class="container">
                         <div class="row">
-                            <input type="hidden" id="form_reg_estado" name="form_reg_estado" value="1">
 
                             <div class="col-12">
                                 <div class="form-group">
@@ -501,6 +500,69 @@
                                 <div class="form-group">
                                     <label for="form_reg_desc_receta">Descrici&#243n</label>
                                     <textarea class="form-control" id="form_reg_desc_receta" name="form_reg_desc_receta" rows="7"></textarea>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <!--Footer-->
+                <div class="modal-footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col d-flex flex-center mx-auto">
+                                <button id="btn_submit_form_reg_receta" class="btn btn-dark-green"
+                                    type="submit">Registrarse</button>
+                                <i id="icon_load_form_reg_receta"
+                                    class="fa fa-spinner fa-spin d-none text-center mx-auto"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--Modal de Modificacion de recetas-->
+<div class="modal fade" id="mod_form_edit_receta" tabindex="-1" role="dialog" aria-labelledby="mod_form_edit_receta"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content rounded ">
+
+            <form id="form_edit_receta" name="form_edit_receta" method="POST"
+                action="../../Edit?Peticion=Editar_Receta">
+                <!--Header-->
+                <div class="modal-header bg-dark d-block">
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="text-center text-white"><strong>Formulario de Modificaci&#243n</strong></h4>
+                </div>
+                <!--Body-->
+                <div class="modal-body mx-3">
+                    <div class="container">
+                        <div class="row">
+                            <input type="hidden" id="form_edit_id_receta" name="form_edit_id_receta">
+
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="form_edit_usuario_receta">Usuario</label>
+                                    <select id="form_edit_usuario_receta" name="form_edit_usuario_receta"
+                                        class="browser-default custom-select form-control">
+                                        <option value="">Seleccione un usuario</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="form_edit_desc_receta">Descrici&#243n</label>
+                                    <textarea class="form-control" id="form_edit_desc_receta" name="form_edit_desc_receta" rows="7"></textarea>
                                 </div>
                             </div>
 
