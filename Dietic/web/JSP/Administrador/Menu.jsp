@@ -1,11 +1,3 @@
-<% if (session.getAttribute("username_usuario") == null) {
-        response.sendRedirect("../../redirect.jsp");
-    } else {
-        if (session.getAttribute("perfil_usuario").equals("2")) {
-            response.sendRedirect("../../index.jsp");
-        }  
-    }
-%>
 
 <header>
     <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
@@ -85,8 +77,12 @@
                         <div class="sidebar-submenu">
                             <ul>
                                 <li>
-                                    <a href="Usuarios.jsp">Usuarios</a>
+                                    <a href="Usuarios.jsp">Gestion de Usuarios</a>
                                 </li>
+                                <li>
+                                    <a href="Citas.jsp">Gestion de Citas</a>
+                                </li>
+                            </ul>
                         </div>
                     </li>
                     <li class="header-menu">

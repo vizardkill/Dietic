@@ -35,26 +35,31 @@ $.validator.addMethod("letras", function (value) {
     return /^[a-zA-Z]+(\s*[a-zA-Z]*)*[a-zA-Z]+$/.test(value)
 });
 
+$.validator.addMethod("fechaActual", function (value) {
+    var date = new Date();
+})
+
+function returFecha() {
+    var inputFecha = document.getElementById("form_reg_cita_fecha").value;
+
+    var date = new Date(inputFecha);
+
+    var mes = date.getMonth() + 1;
+    var anio = date.getFullYear();
+    var dia = date.getDate();
+
+    var fecha = [
+        (dia > 9 ? '' : '0') + dia,
+        (mes > 9 ? '' : '0') + mes,
+        anio 
+    ].join('/');
+
+    console.log(fecha);
+
+}
+
+
 $(document).ready(function () {
-    $.ajax({
-        type: "GET",
-        url: "../../Data?Peticion=data_usuarios",
-        dataType: "json",
-
-        success: function (Data) {
-            $.each(Data.v_Usuarios, function (i, item) {
-                $("#form_reg_usuario_receta").append('<option value=' + item.identificacion + '>' + item.nombres + ' ' + item.apellidos + '</option>');
-            });
-
-            $.each(Data.v_Usuarios, function (i, item) {
-                $("#form_edit_usuario_receta").append('<option value=' + item.identificacion + '>' + item.nombres + ' ' + item.apellidos + '</option>');
-            });
-        },
-        error: function (response) {
-            alert('Error interno con el servidor, intentalo de nuevo más tarde')
-            console.log(response);
-        }
-    });
 
     //################################## Esta Seccion establece la validacion de los diferentes Formularios del Sistema a travez de JQuery Validator
 
@@ -280,7 +285,7 @@ $(document).ready(function () {
 
                         $("#form_reg_usuario_client")[0].reset();
                         $("#form_reg_usuario_client .form-control").removeClass('is-valid');
-                        
+
                         $('#mod_form_reg_usuario_client').modal('hide');
                         $('#mod_success').modal('show');
                         $('#msg_mod_success').text('Usuario registrado con éxito');
@@ -381,7 +386,7 @@ $(document).ready(function () {
 
                         $("#form_edit_usuario_system")[0].reset();
                         $("#form_edit_usuario_system .form-control").removeClass('is-valid');
-                        
+
 
 
                         $('#mod_form_edit_usuario_system').modal('hide');
@@ -476,7 +481,7 @@ $(document).ready(function () {
 
                         $("#form_reg_receta")[0].reset();
                         $("#form_reg_receta .form-control").removeClass('is-valid');
-                        
+
                         $('#mod_form_reg_receta').modal('hide');
                         $('#mod_success').modal('show');
                         $('#msg_mod_success').text('Receta registrado con éxito');
@@ -498,6 +503,26 @@ $(document).ready(function () {
             });
         }
 
+    });
+    //Funcion que permite consultar la informacion de los usuario y renderiza las opciones en el formulario de recetas
+    $.ajax({
+        type: "GET",
+        url: "../../Data?Peticion=data_usuarios",
+        dataType: "json",
+
+        success: function (Data) {
+            $.each(Data.v_Usuarios, function (i, item) {
+                $("#form_reg_usuario_receta").append('<option value=' + item.identificacion + '>' + item.nombres + ' ' + item.apellidos + '</option>');
+            });
+
+            $.each(Data.v_Usuarios, function (i, item) {
+                $("#form_edit_usuario_receta").append('<option value=' + item.identificacion + '>' + item.nombres + ' ' + item.apellidos + '</option>');
+            });
+        },
+        error: function (response) {
+            alert('Error interno con el servidor, intentalo de nuevo más tarde')
+            console.log(response);
+        }
     });
 
     //Confirmacion del Formulario para la eliminacion de una Receta
@@ -570,7 +595,7 @@ $(document).ready(function () {
 
                         $("#form_edit_receta")[0].reset();
                         $("#form_edit_receta .form-control").removeClass('is-valid');
-                        
+
 
 
                         $('#mod_form_edit_receta').modal('hide');
@@ -595,6 +620,33 @@ $(document).ready(function () {
         }
 
     });
+
+    $('#form_reg_cita').validate({
+        rules: {
+            form_reg_cita_usuario: {
+                required: true
+            },
+            form_reg_cita_fecha: {
+                required: true
+            },
+            form_reg_cita_desc: {
+                required: true
+            }
+        },
+        messages: {
+            form_reg_cita_usuario: {
+                required: "El usuario es requerido"
+            },
+            form_reg_cita_fecha: {
+                required: "La fecha es obligatoria"
+            },
+            form_reg_cita_desc: {
+                required: "Describe brevemente el motivo de la cita"
+            }
+        }
+    })
+
+
 
     //################################## Seccion extendida para adicionar configuracion a la Tabla de Usuarios
 

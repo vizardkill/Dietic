@@ -1,11 +1,3 @@
-<% if (session.getAttribute("username_usuario") == null) {
-        response.sendRedirect("../../redirect.jsp");
-    } else {
-        if (session.getAttribute("perfil_usuario").equals("2")) {
-            response.sendRedirect("../../index.jsp");
-        }  
-    }
-%>
 <!--#################################################### CRUD de Usuarios ##############################################################-->
 
 <!--Modal Sucess-->
@@ -29,8 +21,8 @@
 </div>
 
 <!--Modal de Registro de Usuario del Sistema-->
-<div class="modal fade" id="mod_form_reg_usuario_system" tabindex="-1" role="dialog" aria-labelledby="mod_form_reg_usuario_system"
-    aria-hidden="true">
+<div class="modal fade" id="mod_form_reg_usuario_system" tabindex="-1" role="dialog"
+    aria-labelledby="mod_form_reg_usuario_system" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content rounded ">
 
@@ -94,10 +86,12 @@
 
                             <div class="col-12">
                                 <div class=" form-group">
-                                    <label for="form_reg_identificacion_system"><i class="fas fa-address-card prefix"></i>
+                                    <label for="form_reg_identificacion_system"><i
+                                            class="fas fa-address-card prefix"></i>
                                         Numero de Identificaci&#243n</label>
-                                    <input type="text" id="form_reg_identificacion_system" name="form_reg_identificacion_system"
-                                        class="form-control" aria-describedby="form_reg_identificacion_system">
+                                    <input type="text" id="form_reg_identificacion_system"
+                                        name="form_reg_identificacion_system" class="form-control"
+                                        aria-describedby="form_reg_identificacion_system">
                                 </div>
                             </div>
 
@@ -105,8 +99,8 @@
                                 <div class="form-group">
                                     <label for="form_reg_correo_system"><i class="fas fa-envelope prefix"></i> Correo
                                         electron&#237co</label>
-                                    <input type="email" id="form_reg_correo_system" name="form_reg_correo_system" class="form-control"
-                                        aria-describedby="form_reg_correo_system">
+                                    <input type="email" id="form_reg_correo_system" name="form_reg_correo_system"
+                                        class="form-control" aria-describedby="form_reg_correo_system">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -119,7 +113,8 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label for="form_reg_username_system"><i class="fa fa-user prefix"></i> Usuario</label>
+                                    <label for="form_reg_username_system"><i class="fa fa-user prefix"></i>
+                                        Usuario</label>
                                     <input type="text" id="form_reg_username_system" name="form_reg_username_system"
                                         class="form-control" aria-describedby="form_reg_username_system">
                                 </div>
@@ -128,8 +123,10 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label for="form_reg_pwd_system"><i class="fa fa-lock prefix"></i> Contrase&#241a</label>
-                                    <input type="password" id="form_reg_pwd_system" name="form_reg_pwd_system" class="form-control">
+                                    <label for="form_reg_pwd_system"><i class="fa fa-lock prefix"></i>
+                                        Contrase&#241a</label>
+                                    <input type="password" id="form_reg_pwd_system" name="form_reg_pwd_system"
+                                        class="form-control">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -164,8 +161,8 @@
 </div>
 
 <!--Modal de Registro de Usuario Cliente -->
-<div class="modal fade" id="mod_form_reg_usuario_client" tabindex="-1" role="dialog" aria-labelledby="mod_form_reg_usuario_client"
-    aria-hidden="true">
+<div class="modal fade" id="mod_form_reg_usuario_client" tabindex="-1" role="dialog"
+    aria-labelledby="mod_form_reg_usuario_client" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content rounded ">
 
@@ -185,7 +182,7 @@
                             <input type="hidden" id="form_reg_estado_client" name="form_reg_estado_client" value="1">
                             <input type="hidden" id="form_reg_perfil_client" name="form_reg_perfil_client" value="2">
 
-                            
+
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="form_reg_sexo_client">Sexo</label>
@@ -219,10 +216,12 @@
 
                             <div class="col-12">
                                 <div class=" form-group">
-                                    <label for="form_reg_identificacion_client"><i class="fas fa-address-card prefix"></i>
+                                    <label for="form_reg_identificacion_client"><i
+                                            class="fas fa-address-card prefix"></i>
                                         Numero de Identificaci&#243n</label>
-                                    <input type="text" id="form_reg_identificacion_client" name="form_reg_identificacion_client"
-                                        class="form-control" aria-describedby="form_reg_identificacion_client">
+                                    <input type="text" id="form_reg_identificacion_client"
+                                        name="form_reg_identificacion_client" class="form-control"
+                                        aria-describedby="form_reg_identificacion_client">
                                 </div>
                             </div>
 
@@ -230,8 +229,8 @@
                                 <div class="form-group">
                                     <label for="form_reg_correo_client"><i class="fas fa-envelope prefix"></i> Correo
                                         electron&#237co</label>
-                                    <input type="email" id="form_reg_correo_client" name="form_reg_correo_client" class="form-control"
-                                        aria-describedby="form_reg_correo_client">
+                                    <input type="email" id="form_reg_correo_client" name="form_reg_correo_client"
+                                        class="form-control" aria-describedby="form_reg_correo_client">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -250,12 +249,12 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                    <div class="form-group">
-                                        <label for="form_reg_peso_client"><i class="fas fa-weight"></i> Peso</label>
-                                        <input type="number" id="form_reg_peso_client" name="form_reg_peso_client"
-                                            class="form-control" aria-describedby="form_reg_peso_client">
-                                    </div>
+                                <div class="form-group">
+                                    <label for="form_reg_peso_client"><i class="fas fa-weight"></i> Peso</label>
+                                    <input type="number" id="form_reg_peso_client" name="form_reg_peso_client"
+                                        class="form-control" aria-describedby="form_reg_peso_client">
                                 </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -360,7 +359,8 @@
                                     <label for="form_edit_correo_system"><i class="fas fa-envelope prefix"></i> Correo
                                         electron&#237co</label>
                                     <input type="email" id="form_edit_correo_system" name="form_edit_correo_system"
-                                        class="form-control" aria-describedby="form_edit_correo_system" readonly="readonly">
+                                        class="form-control" aria-describedby="form_edit_correo_system"
+                                        readonly="readonly">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -499,7 +499,8 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="form_reg_desc_receta">Descrici&#243n</label>
-                                    <textarea class="form-control" id="form_reg_desc_receta" name="form_reg_desc_receta" rows="7"></textarea>
+                                    <textarea class="form-control" id="form_reg_desc_receta" name="form_reg_desc_receta"
+                                        rows="7"></textarea>
                                 </div>
                             </div>
 
@@ -562,7 +563,8 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="form_edit_desc_receta">Descrici&#243n</label>
-                                    <textarea class="form-control" id="form_edit_desc_receta" name="form_edit_desc_receta" rows="7"></textarea>
+                                    <textarea class="form-control" id="form_edit_desc_receta"
+                                        name="form_edit_desc_receta" rows="7"></textarea>
                                 </div>
                             </div>
 
@@ -576,7 +578,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col d-flex flex-center mx-auto">
-                                <button id="btn_submit_form_reg_receta" class="btn btn-dark-green"
+                                <button id="btn_submit_form_edit_receta" class="btn btn-dark-green"
                                     type="submit">Registrarse</button>
                                 <i id="icon_load_form_reg_receta"
                                     class="fa fa-spinner fa-spin d-none text-center mx-auto"></i>
@@ -630,6 +632,58 @@
                     </div>
                 </div>
                 <!--/Footer-->
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<!--#################################################### CRUD de Usuarios ##############################################################-->
+
+<!-- Modal Registro de Citas -->
+<div class="modal fade" id="mod_form_reg_cita" tabindex="-1" role="dialog" aria-labelledby="mod_form_add_cita"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content rounded">
+            <form action="" name="form_reg_cita" id="form_reg_cita" method="POST">
+                <div class="modal-header bg-dark">
+                    <h5 class="modal-title text-white text-center">Agendar Cita</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="form_reg_cita_usuario"><i class="far fa-user"></i> Usuario</label>
+                                    <select id="form_reg_cita_usuario" name="form_reg_cita_usuario"
+                                        class="browser-default custom-select form-control">
+                                        <option value="">Seleccione un usuario</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="form_reg_cita_fecha"><i class="far fa-calendar-alt"></i> Fecha</label>
+                                    <input type="datetime-local" class="form-control" name="form_reg_cita_fecha" onchange="validarFecha()"
+                                        id="form_reg_cita_fecha" aria-describedby="Fecha de la cita" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                  <label for="form_reg_cita_desc"><i class="far fa-clipboard"></i> Descripcion de la cita</label>
+                                  <textarea class="form-control" name="form_reg_cita_desc" id="form_reg_cita_desc" rows="5"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="submit" class="btn btn-dark-green">Registrar</button>
+                </div>
             </form>
         </div>
     </div>

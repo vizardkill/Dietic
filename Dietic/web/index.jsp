@@ -30,6 +30,7 @@
             aria-hidden="true" data-backdrop="false">
             <div class="modal-dialog modal-frame modal-top modal-notify modal-success" role="document">
                 <!--Content-->
+                
                 <div class="modal-content">
                     <!--Header-->
                     <div class="modal-header d-flex align-items-center">
