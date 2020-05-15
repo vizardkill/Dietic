@@ -54,8 +54,8 @@ CREATE TABLE CITAS (
     id INTEGER,
     fecha DATE,
     usuario VARCHAR2(30),
-    estado INTEGER
-    descripcion varchar2(max)
+    estado INTEGER,
+    descripcion varchar2(800)
 )
 TABLESPACE DIETIC;
 

@@ -9,6 +9,6 @@ insert into PERFILES values(2,'Usuario','Usuario del sistema');
 
 insert into USUARIOS (identificacion, username, pwd, perfil) values('admin@localhost','admin','21232f297a57a5a743894a0e4a801fc3',1);
 
-insert into USUARIOS (identificacion, username, pwd, perfil) values('admin@localhost','user','21232f297a57a5a743894a0e4a801fc3',2);
+insert into USUARIOS (identificacion, username, pwd, perfil) values('user@localhost','user','21232f297a57a5a743894a0e4a801fc3',2);
 
 commit;
