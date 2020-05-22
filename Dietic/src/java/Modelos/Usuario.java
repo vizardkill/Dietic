@@ -5,6 +5,8 @@
  */
 package Modelos;
 
+import java.util.regex.Pattern;
+
 /**
  *
  * @author clan-
@@ -102,6 +104,13 @@ public class Usuario {
         this.telefono = telefono;
     }
 
+    public void setTelefonoReg(String telefono) {
+        boolean isNumber = Pattern.matches("[0-9]+", telefono);
+        if (isNumber) {
+            this.telefono = Integer.parseInt(telefono);
+        }
+    }
+
     public String getDireccion() {
         return direccion;
     }
@@ -157,9 +166,5 @@ public class Usuario {
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
-    
-    
-
-    
 
 }

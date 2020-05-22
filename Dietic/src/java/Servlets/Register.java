@@ -211,7 +211,7 @@ public class Register extends HttpServlet {
             user.setApellidos(request.getParameter("form_reg_apellidos_system"));
             user.setIdentificacion(request.getParameter("form_reg_identificacion_system"));
             user.setCorreo(request.getParameter("form_reg_correo_system"));
-            user.setTelefono(Integer.parseInt(request.getParameter("form_reg_telefono_system")));
+            user.setTelefonoReg(request.getParameter("form_reg_telefono_system"));
             user.setUsuario(request.getParameter("form_reg_username_system"));
             user.setPwd(request.getParameter("form_reg_pwd_system"));
 

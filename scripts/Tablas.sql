@@ -25,7 +25,7 @@ CREATE TABLE USUARIOS(
     nombres VARCHAR(255),
     apellidos VARCHAR2(255),
     correo VARCHAR2(100),
-    telefono NUMBER(8,0),
+    telefono varchar(10),
     direccion VARCHAR(30),
     fecha_nacimiento DATE,
     talla NUMBER,

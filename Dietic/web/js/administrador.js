@@ -230,6 +230,8 @@ $(document).ready(function () {
                             $('#mod_success').modal('hide');
                         } setTimeout(ShowSucess, 4000);
 
+                    } else {
+                        alert("Ha ocurrido un error al almacenar los datos");
                     }
                 },
                 error: function (response) {
