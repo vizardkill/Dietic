@@ -66,20 +66,13 @@
                             <i class="fas fa-seedling"></i>
                             <span>Recetas</span>
                         </a>
+
+                        <a href="Citas.jsp">
+                            <i class="fas fa-not-equal"></i>
+                            <span>Citas</span>
+                        </a>
                     </li>
 
-                    <li class="sidebar-dropdown">
-                        <a href="#">
-                            <i class="fab fa-whmcs"></i>
-                            <span>Administraci&#243n</span>
-                        </a>
-                        <div class="sidebar-submenu">
-                            <ul>
-                                <li>
-                                    <a href="Usuarios.jsp">Usuarios</a>
-                                </li>
-                        </div>
-                    </li>
                     <li class="header-menu">
                         <span>Extra</span>
                     </li>

@@ -1,11 +1,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
+ 
    <%@include file="Head.jsp" %>
-   <%@include file="Modals.jsp" %>
-
    <body>
+   
+      <%@include file="Modals.jsp" %>
       <!--Bloque necesario para El efecto Sidebar-->
       <div class="page-wrapper ice-theme sidebar-bg bg2 toggled">
          <!--Sidebar Menu-->
@@ -72,6 +72,7 @@
                                  <th>Nombre y Apellidos</th>
                                  <th>Fecha</th>
                                  <th>Descripcion</th>
+                                 <th>Estado</th>
                                  <th><i class="fas fa-cogs"></i>Acciones</th>
                               </tr>
                            </thead>
@@ -81,6 +82,7 @@
                                  <th>Nombre y Apellidos</th>
                                  <th>Fecha</th>
                                  <th>Descripcion</th>
+                                 <th>Estado</th>
                                  <th><i class="fas fa-cogs"></i>Acciones</th>
                               </tr>
                            </tfoot>

@@ -16,5 +16,6 @@
 <!--DataTable-->
 <script type="text/javascript" src="../../addons/DataTables/datatables.min.js"></script>
 <!--JS Personalizados-->
+<script src="../../js/user.js"></script>
 <script src="../../js/select2.full.min.js"></script>
 <script src="../../js/select2-cascade.js"></script>

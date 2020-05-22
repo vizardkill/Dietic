@@ -2,9 +2,8 @@
 <!DOCTYPE html>
 <html>
 
-<%@include file="Head.jsp" %>
-
 <body>
+    <%@include file="Head.jsp" %>
     <!--Bloque necesario para El efecto Sidebar-->
     <div class="page-wrapper ice-theme sidebar-bg bg2 toggled">
         <!--Sidebar Menu-->

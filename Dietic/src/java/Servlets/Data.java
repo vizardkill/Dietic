@@ -37,7 +37,7 @@ public class Data extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Data</title>");            
+            out.println("<title>Servlet Data</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet Data at " + request.getContextPath() + "</h1>");
@@ -59,15 +59,31 @@ public class Data extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("application/json;charset=UTF-8");
+        HttpSession session = request.getSession(true);
+
         String Peticion = request.getParameter("Peticion");
         Json_Datos data = new Json_Datos();
-        
+
         if (Peticion.equals("data_usuarios")) {
             response.getWriter().write(data.Json_Usuarios());
         }
-        
+
         if (Peticion.equals("data_recetas")) {
             response.getWriter().write(data.Json_Recetas());
+        }
+
+        if (Peticion.equals("data_citas")) {
+            response.getWriter().write(data.Json_Citas());
+        }
+
+        if (Peticion.equals("data_recetas_usuario")) {
+
+            response.getWriter().write(data.Json_Recetas_Usuario(session.getAttribute("documento_usuario").toString()));
+        }
+
+        if (Peticion.equals("data_citas_usuario")) {
+
+            response.getWriter().write(data.Json_Citas_Usuario(session.getAttribute("documento_usuario").toString()));
         }
     }
 

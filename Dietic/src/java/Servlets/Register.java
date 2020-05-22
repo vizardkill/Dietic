@@ -5,12 +5,17 @@
  */
 package Servlets;
 
+import Controlador.controller_Cita;
 import Controlador.controller_Receta;
 import Controlador.controller_Usuario;
+import Modelos.Cita;
 import Modelos.Receta;
 import Modelos.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -251,6 +256,28 @@ public class Register extends HttpServlet {
             if (crec.setReceta(rec)) {
                 response.getWriter().write("true");
             } else {
+                response.getWriter().write("false");
+            }
+        }
+        
+        if (Peticion.equals("Registro_Cita")) {
+            try {
+                Cita c = new Cita();
+                c.setFecha(request.getParameter("form_reg_cita_fecha"));
+                c.setUsuario(request.getParameter("form_reg_cita_usuario"));
+                c.setEstado(1);
+                c.setDescripcion(request.getParameter("form_reg_cita_desc"));
+                
+                controller_Cita cc = new controller_Cita();
+                
+                
+                if(cc.setCita(c)) {
+                    response.getWriter().write("true");
+                } else {
+                    response.getWriter().write("false");
+                }
+            } catch (ParseException ex) {
+                System.out.println("Error en la petición de Registro de Citas: " + ex);
                 response.getWriter().write("false");
             }
         }

@@ -465,6 +465,8 @@
     </div>
 </div>
 
+<!--#################################################### CRUD de Recetas ##############################################################-->
+
 <!--Modal de Registro de recetas-->
 <div class="modal fade" id="mod_form_reg_receta" tabindex="-1" role="dialog" aria-labelledby="mod_form_reg_receta"
     aria-hidden="true">
@@ -639,14 +641,14 @@
 
 
 
-<!--#################################################### CRUD de Usuarios ##############################################################-->
+<!--#################################################### CRUD de Citas ##############################################################-->
 
 <!-- Modal Registro de Citas -->
 <div class="modal fade" id="mod_form_reg_cita" tabindex="-1" role="dialog" aria-labelledby="mod_form_add_cita"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content rounded">
-            <form action="" name="form_reg_cita" id="form_reg_cita" method="POST">
+            <form action="../../Register?Peticion=Registro_Cita" name="form_reg_cita" id="form_reg_cita" method="POST">
                 <div class="modal-header bg-dark">
                     <h5 class="modal-title text-white text-center">Agendar Cita</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -668,7 +670,7 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="form_reg_cita_fecha"><i class="far fa-calendar-alt"></i> Fecha</label>
-                                    <input type="datetime-local" class="form-control" name="form_reg_cita_fecha" onchange="validarFecha()"
+                                    <input type="datetime-local" class="form-control" name="form_reg_cita_fecha"
                                         id="form_reg_cita_fecha" aria-describedby="Fecha de la cita" placeholder="">
                                 </div>
                             </div>
@@ -682,7 +684,12 @@
                     </div>
                 </div>
                 <div class="modal-footer justify-content-center">
-                    <button type="submit" class="btn btn-dark-green">Registrar</button>
+                
+                        <button id="btn_submit_form_reg_cita" class="btn btn-dark-green"
+                            type="submit">Registrarse</button>
+                        <i id="icon_load_form_reg_cita"
+                            class="fa fa-spinner fa-spin d-none text-center mx-auto"></i>
+                   
                 </div>
             </form>
         </div>

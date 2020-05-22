@@ -5,8 +5,10 @@
  */
 package Metodos;
 
+import Controlador.controller_Cita;
 import Controlador.controller_Receta;
 import Controlador.controller_Usuario;
+import Modelos.Cita;
 import Modelos.Receta;
 import Modelos.Usuario;
 import com.google.gson.JsonArray;
@@ -50,28 +52,97 @@ public class Json_Datos {
         json.add("v_Usuarios", array);
         return json.toString();
     }
-    
+
     public String Json_Recetas() {
-         JsonObject json = new JsonObject();
-         controller_Receta crec = new controller_Receta();
-         
-         List<Receta> lista_receta = crec.getReceta();
-         
-         JsonArray array = new JsonArray();
-         for (Receta x: lista_receta) {
-             JsonObject item = new JsonObject();
-             
-             item.addProperty("id", x.getId());
-             item.addProperty("usuario", x.getUsuario());
-             item.addProperty("descripcion", x.getDescripcion());
-             
-             array.add(item);
-            
+        JsonObject json = new JsonObject();
+        controller_Receta crec = new controller_Receta();
+
+        List<Receta> lista_receta = crec.getReceta();
+
+        JsonArray array = new JsonArray();
+        for (Receta x : lista_receta) {
+            JsonObject item = new JsonObject();
+
+            item.addProperty("id", x.getId());
+            item.addProperty("usuario", x.getUsuario());
+            item.addProperty("descripcion", x.getDescripcion());
+
+            array.add(item);
+
         }
         json.add("RECETAS", array);
         return json.toString();
-         
-    
+    }
+
+    public String Json_Recetas_Usuario(String usuario) {
+        JsonObject json = new JsonObject();
+        controller_Receta crec = new controller_Receta();
+
+        List<Receta> lista_receta = crec.getReceta();
+
+        JsonArray array = new JsonArray();
+        for (Receta x : lista_receta) {
+            JsonObject item = new JsonObject();
+
+            if (usuario.equals(x.getUsuario())) {
+                item.addProperty("id", x.getId());
+                item.addProperty("descripcion", x.getDescripcion());
+
+                array.add(item);
+
+            }
+        }
+        json.add("RECETAS", array);
+        return json.toString();
+    }
+
+    public String Json_Citas() {
+        JsonObject json = new JsonObject();
+        controller_Cita cc = new controller_Cita();
+
+        List<Cita> lista_citas = cc.getCitas();
+
+        JsonArray array = new JsonArray();
+        for (Cita x : lista_citas) {
+            JsonObject item = new JsonObject();
+
+            item.addProperty("id", x.getId());
+            item.addProperty("usuario", x.getUsuario());
+            item.addProperty("nombres", x.getNombres());
+            item.addProperty("apellidos", x.getApellidos());
+            item.addProperty("fecha", x.getFecha());
+            item.addProperty("descripcion", x.getDescripcion());
+            item.addProperty("estado", x.getEstadoNombre());
+
+            array.add(item);
+
+        }
+        json.add("CITAS", array);
+        return json.toString();
+    }
+
+    public String Json_Citas_Usuario(String usuario) {
+        JsonObject json = new JsonObject();
+        controller_Cita cc = new controller_Cita();
+
+        List<Cita> lista_citas = cc.getCitas();
+
+        JsonArray array = new JsonArray();
+        for (Cita x : lista_citas) {
+            JsonObject item = new JsonObject();
+
+            if (usuario.equals(x.getUsuario())) {
+                item.addProperty("id", x.getId());
+                item.addProperty("fecha", x.getFecha());
+                item.addProperty("descripcion", x.getDescripcion());
+                item.addProperty("estado", x.getEstadoNombre());
+
+                array.add(item);
+            }
+
+        }
+        json.add("CITAS", array);
+        return json.toString();
     }
 
 }

@@ -36,30 +36,74 @@ $.validator.addMethod("letras", function (value) {
 });
 
 $.validator.addMethod("fechaActual", function (value) {
-    var date = new Date();
+    var test = returFecha();
+    return test
 })
 
 function returFecha() {
     var inputFecha = document.getElementById("form_reg_cita_fecha").value;
 
-    var date = new Date(inputFecha);
+    var dateInput = new Date(inputFecha);
+
+    var mesInput = dateInput.getMonth() + 1;
+    var anioInput = dateInput.getFullYear();
+    var diaInput = dateInput.getDate();
+
+    var fecha = [
+        (diaInput > 9 ? '' : '0') + diaInput,
+        (mesInput > 9 ? '' : '0') + mesInput,
+        anioInput 
+    ].join('/');
+
+    var date = new Date();
 
     var mes = date.getMonth() + 1;
     var anio = date.getFullYear();
     var dia = date.getDate();
 
-    var fecha = [
-        (dia > 9 ? '' : '0') + dia,
-        (mes > 9 ? '' : '0') + mes,
-        anio 
-    ].join('/');
-
-    console.log(fecha);
-
+    if(anioInput < anio) {
+        return false
+    } else {
+        if(mesInput < mes) {
+            return false
+        } else {
+            if(diaInput <= dia) {
+                return false
+            } else {
+                return true
+            }
+        }
+    }
 }
 
 
 $(document).ready(function () {
+
+    //Funcion que permite consultar la informacion de los usuario y renderiza las opciones en el formulario de recetas
+        $.ajax({
+            type: "GET",
+            url: "../../Data?Peticion=data_usuarios",
+            dataType: "json",
+    
+            success: function (Data) {
+                $.each(Data.v_Usuarios, function (i, item) {
+                    $("#form_reg_usuario_receta").append('<option value=' + item.identificacion + '>' + item.nombres + ' ' + item.apellidos + '</option>');
+                });
+    
+                $.each(Data.v_Usuarios, function (i, item) {
+                    $("#form_edit_usuario_receta").append('<option value=' + item.identificacion + '>' + item.nombres + ' ' + item.apellidos + '</option>');
+                });
+    
+                $.each(Data.v_Usuarios, function (i, item) {
+                    $("#form_reg_cita_usuario").append('<option value=' + item.identificacion + '>' + item.nombres + ' ' + item.apellidos + '</option>');
+                });
+    
+            },
+            error: function (response) {
+                alert('Error interno con el servidor, intentalo de nuevo más tarde')
+                console.log(response);
+            }
+        });
 
     //################################## Esta Seccion establece la validacion de los diferentes Formularios del Sistema a travez de JQuery Validator
 
@@ -504,26 +548,7 @@ $(document).ready(function () {
         }
 
     });
-    //Funcion que permite consultar la informacion de los usuario y renderiza las opciones en el formulario de recetas
-    $.ajax({
-        type: "GET",
-        url: "../../Data?Peticion=data_usuarios",
-        dataType: "json",
 
-        success: function (Data) {
-            $.each(Data.v_Usuarios, function (i, item) {
-                $("#form_reg_usuario_receta").append('<option value=' + item.identificacion + '>' + item.nombres + ' ' + item.apellidos + '</option>');
-            });
-
-            $.each(Data.v_Usuarios, function (i, item) {
-                $("#form_edit_usuario_receta").append('<option value=' + item.identificacion + '>' + item.nombres + ' ' + item.apellidos + '</option>');
-            });
-        },
-        error: function (response) {
-            alert('Error interno con el servidor, intentalo de nuevo más tarde')
-            console.log(response);
-        }
-    });
 
     //Confirmacion del Formulario para la eliminacion de una Receta
     $("#form_elim_receta").submit(function (e) {
@@ -627,7 +652,8 @@ $(document).ready(function () {
                 required: true
             },
             form_reg_cita_fecha: {
-                required: true
+                required: true,
+                fechaActual: true
             },
             form_reg_cita_desc: {
                 required: true
@@ -638,11 +664,54 @@ $(document).ready(function () {
                 required: "El usuario es requerido"
             },
             form_reg_cita_fecha: {
-                required: "La fecha es obligatoria"
+                required: "La fecha es obligatoria",
+                fechaActual: "La fecha no puede ser menor o igual a la fecha actual."
             },
             form_reg_cita_desc: {
                 required: "Describe brevemente el motivo de la cita"
             }
+        },
+
+        
+        submitHandler: function () {
+            $.ajax({
+                url: $("#form_reg_cita").attr('action'),
+                type: $("#form_reg_cita").attr('method'),
+                data: $("#form_reg_cita").serialize(),
+                dataType: "text",
+
+                beforeSend: function () {
+                    $('#icon_load_form_reg_cita').removeClass('d-none').addClass('d-block');
+                    $('#btn_submit_form_reg_cita').removeClass('d-block').addClass('d-none');
+                },
+                success: function (response) {
+                    if (response == 'true') {
+                        $('#table_citas').DataTable().ajax.reload();
+
+                        $("#form_reg_cita")[0].reset();
+                        $("#form_reg_cita .form-control").removeClass('is-valid');
+
+
+
+                        $('#mod_form_reg_cita').modal('hide');
+                        $('#mod_success').modal('show');
+                        $('#msg_mod_success').text('Cita registrada con éxito');
+
+                        function ShowSucess() {
+                            $('#mod_success').modal('hide');
+                        } setTimeout(ShowSucess, 4000);
+
+                    }
+                },
+                error: function (response) {
+                    console.log(response);
+                    alert('Error con el servidor, por favor intentalo de nuevo mas tarde');
+                },
+                complete: function () {
+                    $('#icon_load_form_reg_cita').removeClass('d-block').addClass('d-none');
+                    $('#btn_submit_form_reg_cita').removeClass('d-none').addClass('d-block');
+                }
+            });
         }
     })
 
@@ -800,7 +869,7 @@ $(document).ready(function () {
         $('#mod_form_edit_usuario_system').modal('show');
     });
 
-    //Tabla de Recetas 
+    //################################## Seccion extendida para adicionar configuracion a la Tabla de Recetas 
     var table_recetas = $('#table_recetas').DataTable({
         language: {
             sProcessing: "Procesando...",
@@ -881,5 +950,74 @@ $(document).ready(function () {
 
 
         $('#mod_form_edit_receta').modal('show');
+    });
+
+    var table_citas = $('#table_citas').DataTable({
+        language: {
+            sProcessing: "Procesando...",
+            sLengthMenu: "Mostrar _MENU_  Registros",
+            sZeroRecords: "No se encontraron resultados",
+            sEmptyTable: "Ningún dato disponible en esta tabla",
+            sInfo: "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            sInfoEmpty: "Mostrando registros del 0 al 0 de un total de 0 registros",
+            sInfoFiltered: "(filtrado de un total de _MAX_ registros)",
+            sInfoPostFix: "",
+            sSearch: "Buscar:",
+            sUrl: "",
+            sInfoThousands: ",",
+            sLoadingRecords: "Cargando...",
+            oPaginate: {
+                sFirst: "Primero",
+                sLast: "Último",
+                sNext: "Siguiente",
+                sPrevious: "Anterior"
+            },
+            oAria: {
+                sSortAscending: ": Activar para ordenar la columna de manera ascendente",
+                sSortDescending: ": Activar para ordenar la columna de manera descendente"
+            }
+        },
+        ajax: {
+            method: "GET",
+            url: "../../Data?Peticion=data_citas",
+            dataSrc: "CITAS"
+        },
+        select: "single",
+        columns: [
+            { data: "usuario" },
+            { data: null, 
+               render:  function ( data, type, row ) {
+                return row.nombres + " " + row.apellidos
+            } },
+            { data: "fecha" },
+            { data: "descripcion" },
+            { data: "estado" },
+            {
+                orderable: false,
+                data: null,
+                defaultContent: '',
+                render: function () {
+                    return '<div class="btn-group btn-group-sm" role="group" aria-label="Botones de Accion"> ' +
+                        '<button id="btn_elim_cita" type="button" class="btn btn-sm danger-color" title="Eliminar"><i class="fas fa-trash"></i></button>' +
+                        '<button id="btn_mod_cita" type="button" class="btn btn-sm success-color" title="Modificar"><i class="fas fa-marker"></i></button>' +
+                        '</div>';
+                }
+            }
+        ],
+        order: [[1, 'asc']],
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'excelHtml5',
+                text: '<i class="fa fa-file-excel"></i><span> Generar Informe</span>',
+                titleAttr: 'Excel',
+                className: 'btn-sm',
+                action: function (e, dt, node, config) {
+                    $('#table_citas').DataTable().ajax.reload();
+
+                    $.fn.DataTable.ext.buttons.excelHtml5.action.call(this, e, dt, node, config);
+                }
+            }
+        ]
     });
 });
