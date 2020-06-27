@@ -16,4 +16,8 @@ public interface ICita {
     public boolean setCita(Cita c);
     
     public List<Cita> getCitas();
+    
+    public boolean updateCita(Cita c);
+    
+    public boolean deleteCita(Cita c);
 }

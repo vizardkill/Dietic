@@ -695,3 +695,108 @@
         </div>
     </div>
 </div>
+
+
+<!-- Modal Editar Cita -->
+<div class="modal fade" id="mod_form_edit_cita" tabindex="-1" role="dialog" aria-labelledby="mod_form_edit_cita"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content rounded">
+            <form action="../../Edit?Peticion=Editar_Cita" name="form_edit_cita" id="form_edit_cita" method="POST">
+                <div class="modal-header bg-dark">
+                    <h5 class="modal-title text-white text-center">Agendar Cita</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="form_edit_cita_estado"><i class="far fa-user"></i> Estado</label>
+                                    <select id="form_edit_cita_estado" name="form_edit_cita_estado"
+                                        class="browser-default custom-select form-control">
+                                        <option value="1">ACTIVO</option>
+                                        <option value="2">CANCELADO</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="form_edit_cita_fecha"><i class="far fa-calendar-alt"></i> Fecha</label>
+                                    <input type="datetime-local" class="form-control" name="form_edit_cita_fecha"
+                                        id="form_edit_cita_fecha" aria-describedby="Fecha de la cita" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                  <label for="form_edit_cita_desc"><i class="far fa-clipboard"></i> Descripcion de la cita</label>
+                                  <textarea class="form-control" name="form_edit_cita_desc" id="form_edit_cita_desc" rows="5"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <input type="hidden" name="form_edit_cita_id" id="form_edit_cita_id">
+                
+                        <button id="btn_submit_form_edit_cita" class="btn btn-dark-green"
+                            type="submit">Registrarse</button>
+                        <i id="icon_load_form_edit_cita"
+                            class="fa fa-spinner fa-spin d-none text-center mx-auto"></i>
+                   
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<!--Modal Eliminar Cita-->
+<div class="modal fade" id="mod_form_elim_cita" tabindex="-1" role="dialog" aria-labelledby="mod_form_elim_cita"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content rounded ">
+            <form id="form_elim_cita" name="form_elim_cita" method="POST"
+                action="../../Delete?Peticion=Eliminar_Cita">
+                <!--Header-->
+                <div class="modal-header bg-dark d-block">
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="text-center text-white"><strong>Eliminar Cita</strong></h4>
+                </div>
+                <!--/Header-->
+
+                <!--Body-->
+                <div class="modal-body mx-3 text-center">
+                    <p id="msg_form_elim_cita"></p>
+                    <input id="form_elim_id_cita" name="form_elim_id_cita" type="hidden">
+                </div>
+                <!--/Body-->
+
+                <!--Footer-->
+                <div class="modal-footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col d-flex flex-center mx-auto">
+                                <button id="btn_submit_form_elim_cita" class="btn btn-secondary"
+                                    type="submit">Aceptar</button>
+                                <button id="btn_cancel_form_elim_cita" class="btn btn-secondary" data-dismiss="modal"
+                                    aria-label="Close">Cancelar</button>
+                                <i id="icon_load_form_elim_cita"
+                                    class="fa fa-spinner fa-spin d-none text-center mx-auto"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/Footer-->
+            </form>
+        </div>
+    </div>
+</div>

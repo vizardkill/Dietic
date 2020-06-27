@@ -15,13 +15,24 @@ import java.util.List;
  * @author clan-
  */
 public class controller_Cita {
+
     public boolean setCita(Cita c) {
         ICita ic = new DAO_Cita();
         return ic.setCita(c);
     }
-    
-     public List<Cita> getCitas() {
-         ICita ic = new DAO_Cita();
-         return ic.getCitas();
-     };
+
+    public List<Cita> getCitas() {
+        ICita ic = new DAO_Cita();
+        return ic.getCitas();
+    }
+
+    public boolean updateCita(Cita c) {
+        ICita ic = new DAO_Cita();
+        return ic.updateCita(c);
+    }
+
+    public boolean deleteCita(Cita c) {
+        ICita ic = new DAO_Cita();
+        return ic.deleteCita(c);
+    }
 }

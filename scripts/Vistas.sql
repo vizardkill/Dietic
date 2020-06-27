@@ -22,7 +22,7 @@ INNER JOIN SEXOS ON USUARIOS.sexo = SEXOS.id
 
 CREATE OR REPLACE VIEW v_CitasUsuarios
 as
-SELECT citas.id, identificacion, nombres, apellidos, citas.fecha, citas.descripcion, estados_citas.nombre 
+SELECT citas.id, identificacion, nombres, apellidos, citas.fecha, citas.descripcion, estados_citas.id as intEstado, estados_citas.nombre as strEstado 
 FROM usuarios 
 INNER JOIN citas on citas.usuario = usuarios.identificacion 
 inner join estados_citas on estados_citas.id = citas.estado;

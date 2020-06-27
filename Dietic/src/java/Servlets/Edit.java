@@ -5,12 +5,17 @@
  */
 package Servlets;
 
+import Controlador.controller_Cita;
 import Controlador.controller_Receta;
 import Controlador.controller_Usuario;
+import Modelos.Cita;
 import Modelos.Receta;
 import Modelos.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -89,7 +94,7 @@ public class Edit extends HttpServlet {
                 user.setApellidos(request.getParameter("form_edit_apellidos_system"));
                 user.setIdentificacion(request.getParameter("form_edit_identificacion_system"));
                 user.setCorreo(request.getParameter("form_edit_correo_system"));
-                user.setTelefono(Integer.valueOf(request.getParameter("form_edit_telefono_system")));
+                user.setTelefono(request.getParameter("form_edit_telefono_system"));
                 user.setUsuario(request.getParameter("form_edit_username_system"));
                 user.setPwd(request.getParameter("form_edit_pwd_system"));
             }
@@ -102,7 +107,7 @@ public class Edit extends HttpServlet {
                 user.setApellidos(request.getParameter("form_edit_apellidos_client"));
                 user.setIdentificacion(request.getParameter("form_edit_identificacion_client"));
                 user.setCorreo(request.getParameter("form_edit_correo_client"));
-                user.setTelefono(Integer.valueOf(request.getParameter("form_edit_telefono_client")));
+                user.setTelefono(request.getParameter("form_edit_telefono_client"));
                 user.setFecha_nacimiento(request.getParameter("form_edit_fecha_nacimiento_client"));
                 user.setTalla(Double.valueOf(request.getParameter("form_edit_talla_client")));
                 user.setPeso(Double.valueOf(request.getParameter("form_edit_peso_client")));
@@ -110,26 +115,51 @@ public class Edit extends HttpServlet {
 
             controller_Usuario cuser = new controller_Usuario();
 
-            if (cuser.updateUser(user,Tipo)) {
+            if (cuser.updateUser(user, Tipo)) {
                 response.getWriter().write("true");
             } else {
                 response.getWriter().write("false");
             }
         }
-        
+
         if (Peticion.equals("Editar_Receta")) {
             Receta rec = new Receta();
             rec.setId(Integer.valueOf(request.getParameter("form_edit_id_receta")));
             rec.setUsuario(request.getParameter("form_edit_usuario_receta"));
             rec.setDescripcion(request.getParameter("form_edit_desc_receta"));
-            
+
             controller_Receta crec = new controller_Receta();
-            
+
             if (crec.updateReceta(rec)) {
                 response.getWriter().write("true");
             } else {
                 response.getWriter().write("false");
             }
+        }
+
+        if (Peticion.equals("Editar_Cita")) {
+            try {
+                Cita c = new Cita();
+                c.setEstado(Integer.valueOf(request.getParameter("form_edit_cita_estado")));
+                c.setDescripcion(request.getParameter("form_edit_cita_desc"));
+                c.setFecha(request.getParameter("form_edit_cita_fecha"));
+                c.setId(Integer.valueOf(request.getParameter("form_edit_cita_id")));
+                
+
+                controller_Cita cc = new controller_Cita();
+
+                if (cc.updateCita(c)) {
+                    response.getWriter().write("true");
+                } else {
+                    response.getWriter().write("false");
+                }
+                
+                
+            } catch (ParseException ex) {
+                System.out.println("Error en la petición de Registro de Citas: " + ex);
+                response.getWriter().write("false");
+            }
+
         }
     }
 

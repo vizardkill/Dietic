@@ -4,6 +4,9 @@ insert into SEXOS values(2,'Femenino');
 insert into ESTADOS_USUARIOS values(1,'ACTIVO','');
 insert into ESTADOS_USUARIOS values(2,'INACTIVO','');
 
+insert into ESTADOS_CITAS values(1, 'ACTIVO', '');
+insert into ESTADOS_CITAS values(2, 'CANCELADO', '');
+
 insert into PERFILES values(1,'Admin','Administrador del sistema');
 insert into PERFILES values(2,'Usuario','Usuario del sistema');
 

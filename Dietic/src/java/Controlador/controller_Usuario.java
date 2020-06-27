@@ -55,4 +55,9 @@ public class controller_Usuario {
         IUsuario udao = new DAO_Usuario();
         return udao.F_ValidUser(tipo, user);
     }
+
+    public boolean F_ValidUserEdit(String tipo, Usuario user) {
+        IUsuario udao = new DAO_Usuario();
+        return udao.F_ValidUserEdit(tipo, user);
+    }
 }

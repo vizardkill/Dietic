@@ -151,8 +151,10 @@ public class Register extends HttpServlet {
             if (Peticion.equals("ValidarNickUsuario")) {
                 Usuario user = new Usuario();
                 user.setUsuario(request.getParameter("form_edit_username_system"));
+                user.setIdentificacion(request.getParameter("form_edit_identificacion_system"));
                 controller_Usuario cuser = new controller_Usuario();
-                if (cuser.F_ValidUser(Peticion, user)) {
+                
+                if (cuser.F_ValidUserEdit(Peticion, user)) {
                     response.getWriter().write("false");
                 } else {
                     response.getWriter().write("true");
@@ -162,9 +164,10 @@ public class Register extends HttpServlet {
             if (Peticion.equals("ValidarEmailUsuario")) {
                 Usuario user = new Usuario();
                 user.setCorreo(request.getParameter("form_edit_correo_system"));
+                user.setIdentificacion(request.getParameter("form_edit_identificacion_system"));
                 controller_Usuario cuser = new controller_Usuario();
-                cuser.F_ValidUser(Peticion, user);
-                if (cuser.F_ValidUser(Peticion, user)) {
+                
+                if (cuser.F_ValidUserEdit(Peticion, user)) {
                     response.getWriter().write("false");
                 } else {
                     response.getWriter().write("true");
@@ -174,9 +177,10 @@ public class Register extends HttpServlet {
             if (Peticion.equals("ValidarDocUsuario")) {
                 Usuario user = new Usuario();
                 user.setIdentificacion(request.getParameter("form_edit_identificacion_system"));
+                user.setIdentificacion(request.getParameter("form_edit_identificacion_system"));
                 controller_Usuario cuser = new controller_Usuario();
-                cuser.F_ValidUser(Peticion, user);
-                if (cuser.F_ValidUser(Peticion, user)) {
+                
+                if (cuser.F_ValidUserEdit(Peticion, user)) {
                     response.getWriter().write("false");
                 } else {
                     response.getWriter().write("true");
@@ -211,7 +215,7 @@ public class Register extends HttpServlet {
             user.setApellidos(request.getParameter("form_reg_apellidos_system"));
             user.setIdentificacion(request.getParameter("form_reg_identificacion_system"));
             user.setCorreo(request.getParameter("form_reg_correo_system"));
-            user.setTelefonoReg(request.getParameter("form_reg_telefono_system"));
+            user.setTelefono(request.getParameter("form_reg_telefono_system"));
             user.setUsuario(request.getParameter("form_reg_username_system"));
             user.setPwd(request.getParameter("form_reg_pwd_system"));
 
@@ -233,7 +237,7 @@ public class Register extends HttpServlet {
             user.setApellidos(request.getParameter("form_reg_apellidos_client"));
             user.setIdentificacion(request.getParameter("form_reg_identificacion_client"));
             user.setCorreo(request.getParameter("form_reg_correo_client"));
-            user.setTelefono(Integer.parseInt(request.getParameter("form_reg_telefono_client")));
+            user.setTelefono(request.getParameter("form_reg_telefono_client"));
             user.setTalla(Integer.valueOf(request.getParameter("form_reg_talla_client")));
             user.setPeso(Integer.valueOf(request.getParameter("form_reg_peso_client")));
 

@@ -33,8 +33,6 @@ public class DAO_Cita implements ICita {
                 ps.setInt(3, c.getEstado());
                 ps.setString(4, c.getDescripcion());
                 ps.setString(5, c.getFecha());
-                
-               
 
                 ps.executeUpdate();
                 ps.close();
@@ -49,7 +47,7 @@ public class DAO_Cita implements ICita {
 
     @Override
     public List<Cita> getCitas() {
-          Connection con;
+        Connection con;
         Statement stm;
         ResultSet rs;
 
@@ -69,7 +67,8 @@ public class DAO_Cita implements ICita {
                 cc.setApellidos(rs.getString("apellidos"));
                 cc.setFechaSQL(rs.getString("fecha"));
                 cc.setDescripcion(rs.getString("descripcion"));
-                cc.setEstadoNombre(rs.getString("nombre"));
+                cc.setEstadoNombre(rs.getString("strEstado"));
+                cc.setEstado(rs.getInt("intEstado"));
 
                 listaCita.add(cc);
             }
@@ -80,6 +79,58 @@ public class DAO_Cita implements ICita {
             System.out.println("Error: Clase DAO_Cita, método getCitas: " + e);
         }
         return listaCita;
+    }
+
+    @Override
+    public boolean updateCita(Cita c) {
+        Connection con;
+        String sql = "UPDATE CITAS SET "
+                + "estado                 = ?, "
+                + "descripcion            = ?, "
+                + "fecha                  = ?  "
+                + "WHERE id               = ?  ";
+
+        try {
+            con = Conexion.getConexion();
+            try (PreparedStatement ps = con.prepareStatement(sql)) {
+                ps.setInt(1, c.getEstado());
+                ps.setString(2, c.getDescripcion());
+                ps.setString(3, c.getFecha());
+                ps.setInt(4, c.getId());
+
+                ps.executeUpdate();
+                ps.close();
+            }
+            con.close();
+
+            return true;
+
+        } catch (SQLException e) {
+            System.out.println("Error: Clase DAO_Cita, método updateCita: " + e);
+            return false;
+        }
+    }
+    
+    @Override
+    public boolean deleteCita(Cita c) {
+        Connection con;
+
+        String sql = "DELETE FROM CITAS WHERE id = ?";
+
+        try {
+            con = Conexion.getConexion();
+            try (PreparedStatement ps = con.prepareStatement(sql)) {
+                ps.setInt(1, c.getId());
+                ps.executeUpdate();
+                ps.close();
+            }
+            
+             return true;
+        } catch (SQLException e) {
+            System.out.println("Error: Clase DAO_Cita, método deleteCita: " + e);
+            return false;
+        }
+       
     }
 
 }

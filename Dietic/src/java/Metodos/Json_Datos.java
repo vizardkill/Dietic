@@ -113,6 +113,7 @@ public class Json_Datos {
             item.addProperty("fecha", x.getFecha());
             item.addProperty("descripcion", x.getDescripcion());
             item.addProperty("estado", x.getEstadoNombre());
+            item.addProperty("intEstado", x.getEstado());
 
             array.add(item);
 

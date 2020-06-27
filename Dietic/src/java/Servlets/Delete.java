@@ -5,8 +5,10 @@
  */
 package Servlets;
 
+import Controlador.controller_Cita;
 import Controlador.controller_Receta;
 import Controlador.controller_Usuario;
+import Modelos.Cita;
 import Modelos.Receta;
 import Modelos.Usuario;
 import java.io.IOException;
@@ -39,7 +41,7 @@ public class Delete extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Delete</title>");            
+            out.println("<title>Servlet Delete</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet Delete at " + request.getContextPath() + "</h1>");
@@ -76,29 +78,41 @@ public class Delete extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String Peticion = request.getParameter("Peticion");
-        
+
         if (Peticion.equals("Eliminar_Usuario")) {
             Usuario user = new Usuario();
             user.setIdentificacion(request.getParameter("form_elim_idenfiticacion"));
             controller_Usuario cuser = new controller_Usuario();
-            
+
             if (cuser.deleteUser(user)) {
                 response.getWriter().write("true");
             } else {
                 response.getWriter().write("false");
-            }   
+            }
         }
-        
+
         if (Peticion.equals("Eliminar_Receta")) {
-            Receta rec = new Receta();     
+            Receta rec = new Receta();
             rec.setId(Integer.valueOf(request.getParameter("form_elim_id_receta")));
             controller_Receta crec = new controller_Receta();
-            
+
             if (crec.deleteReceta(rec)) {
                 response.getWriter().write("true");
             } else {
                 response.getWriter().write("false");
-            }              
+            }
+        }
+
+        if (Peticion.equals("Eliminar_Cita")) {
+            Cita c = new Cita();
+            c.setId(Integer.valueOf(request.getParameter("form_elim_id_cita")));
+            controller_Cita cc = new controller_Cita();
+
+            if (cc.deleteCita(c)) {
+                response.getWriter().write("true");
+            } else {
+                response.getWriter().write("false");
+            }
         }
     }
 

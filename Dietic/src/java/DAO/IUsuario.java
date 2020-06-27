@@ -26,4 +26,6 @@ public interface IUsuario {
     public boolean P_Login(Usuario user);
     
     public boolean F_ValidUser(String tipo, Usuario user);
+    
+    public boolean F_ValidUserEdit(String tipo, Usuario user);
 }

@@ -67,4 +67,30 @@ BEGIN
 END;
 /
 
+CREATE OR REPLACE FUNCTION Validaciones_UsuarioEdit(V_tipo VARCHAR2,V_variable VARCHAR2, V_doc VARCHAR2) RETURN NUMBER
+IS V_aux NUMBER(1,0);
+BEGIN
+
+  IF (v_tipo = 'ValidarNickUsuario') THEN 
+      SELECT COUNT(username) INTO V_aux FROM USUARIOS WHERE username = V_variable and identificacion <> V_doc;
+      RETURN V_aux;
+  END  IF;
+
+  IF (v_tipo = 'ValidarEmailUsuario') THEN 
+      SELECT COUNT(correo) INTO V_aux FROM USUARIOS WHERE correo = V_variable and identificacion <> V_doc;
+      RETURN V_aux;
+  END  IF;
+
+  IF (v_tipo = 'ValidarDocUsuario') THEN 
+      SELECT COUNT(identificacion) INTO V_aux FROM USUARIOS WHERE identificacion = V_variable and identificacion <> V_doc;
+      RETURN V_aux;
+  END  IF;
+  
+  EXCEPTION WHEN NO_DATA_FOUND THEN
+  V_aux := 0;
+  RETURN V_aux;  
+END;
+/
+
+
 

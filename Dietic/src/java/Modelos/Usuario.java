@@ -19,7 +19,7 @@ public class Usuario {
     private String nombres;
     private String apellidos;
     private String correo;
-    private int telefono;
+    private String telefono;
     private String direccion;
     private String fecha_nacimiento;
     private double talla;
@@ -31,7 +31,7 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String identificacion, String usuario, String pwd, String nombres, String apellidos, String correo, int telefono, String direccion, String fecha_nacimiento, double talla, double peso, String perfil, String estado, String sexo) {
+    public Usuario(String identificacion, String usuario, String pwd, String nombres, String apellidos, String correo, String telefono, String direccion, String fecha_nacimiento, double talla, double peso, String perfil, String estado, String sexo) {
         this.identificacion = identificacion;
         this.usuario = usuario;
         this.pwd = pwd;
@@ -96,20 +96,14 @@ public class Usuario {
         this.correo = correo;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
-    public void setTelefonoReg(String telefono) {
-        boolean isNumber = Pattern.matches("[0-9]+", telefono);
-        if (isNumber) {
-            this.telefono = Integer.parseInt(telefono);
-        }
-    }
 
     public String getDireccion() {
         return direccion;

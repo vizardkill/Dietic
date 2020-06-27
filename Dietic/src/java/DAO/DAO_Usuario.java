@@ -36,7 +36,7 @@ public class DAO_Usuario implements IUsuario {
                 ps.setString(4, user.getNombres());
                 ps.setString(5, user.getApellidos());
                 ps.setString(6, user.getCorreo());
-                ps.setInt(7, user.getTelefono());
+                ps.setString(7, user.getTelefono());
                 ps.setString(8, user.getDireccion());
                 ps.setString(9, user.getFecha_nacimiento());
                 ps.setDouble(10, user.getTalla());
@@ -48,11 +48,13 @@ public class DAO_Usuario implements IUsuario {
                 ps.close();
             }
             con.close();
+            
+            return true;
         } catch (SQLException e) {
             System.out.println("Error: Clase DAO_Usuario, método setUser: " + e);
             return false;
         }
-        return true;
+        
     }
 
     @Override
@@ -76,7 +78,7 @@ public class DAO_Usuario implements IUsuario {
                 u.setNombres(rs.getString("nombres"));
                 u.setApellidos(rs.getString("apellidos"));
                 u.setCorreo(rs.getString("correo"));
-                u.setTelefono(rs.getInt("telefono"));
+                u.setTelefono(rs.getString("telefono"));
                 u.setDireccion(rs.getString("direccion"));
                 u.setFecha_nacimiento(rs.getString("fecha_nacimiento"));
                 u.setTalla(rs.getDouble("talla"));
@@ -120,7 +122,7 @@ public class DAO_Usuario implements IUsuario {
                     ps.setString(3, user.getNombres());
                     ps.setString(4, user.getApellidos());
                     ps.setString(5, user.getCorreo());
-                    ps.setInt(6, user.getTelefono());
+                    ps.setString(6, user.getTelefono());
                     ps.setInt(7, Integer.valueOf(user.getPerfil()));
                     ps.setInt(8, Integer.valueOf(user.getEstado()));
                     ps.setInt(9, Integer.valueOf(user.getSexo()));
@@ -129,12 +131,15 @@ public class DAO_Usuario implements IUsuario {
                     ps.close();
                 }
                 con.close();
+                
+                return true;
             } catch (SQLException e) {
                 System.out.println("Error: Clase DAO_Usuario, método updateUser_System: " + e);
                 return false;
             }
+        } else {
+            return false;
         }
-        return true;
     }
 
     @Override
@@ -150,11 +155,13 @@ public class DAO_Usuario implements IUsuario {
                 ps.executeUpdate();
                 ps.close();
             }
+            
+             return true;
         } catch (SQLException e) {
             System.out.println("Error: Clase DAO_Usuario, método deleteUser: " + e);
             return false;
         }
-        return true;
+       
     }
 
     //**************************************************Procedimientos Almacenados******************************************************
@@ -211,6 +218,48 @@ public class DAO_Usuario implements IUsuario {
             if (tipo.equals("ValidarDocUsuario")) {
                 cst.setString(3, user.getIdentificacion());
             }
+            cst.registerOutParameter(1, java.sql.Types.INTEGER);
+
+            cst.execute();
+
+            aux = cst.getInt(1);
+
+            cst.close();
+
+        } catch (SQLException ex) {
+            System.out.println("Error: En la Funcion SQL, método F_ValidUser: " + ex);
+            return false;
+        }
+
+        if (aux == 1) {
+            return true;
+        }
+        return false;
+    }
+    
+    @Override
+    public boolean F_ValidUserEdit(String tipo, Usuario user) {
+        Connection con;
+        con = Conexion.getConexion();
+        int aux;
+        try (CallableStatement cst = con.prepareCall("{ ? = call Validaciones_Usuario (?,?,?)}")) {
+
+            cst.setString(2, tipo);
+
+            if (tipo.equals("ValidarNickUsuario")) {
+                cst.setString(3, user.getUsuario());
+            }
+
+            if (tipo.equals("ValidarEmailUsuario")) {
+                cst.setString(3, user.getCorreo());
+            }
+
+            if (tipo.equals("ValidarDocUsuario")) {
+                cst.setString(3, user.getIdentificacion());
+            }
+            
+            cst.setString(4,  user.getIdentificacion());
+            
             cst.registerOutParameter(1, java.sql.Types.INTEGER);
 
             cst.execute();
