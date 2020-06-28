@@ -1,3 +1,15 @@
+//Funciones
+function logout() {
+    $.ajax({
+        url: $("#form_logout").attr("action"),
+        type: $("#form_logout").attr("method"),
+        dataType: "text",
+        success: function (res) {
+            window.location.reload();
+        }
+    })
+}
+
 $(document).ready(function () {
     
     var table_recetas_usuario = $('#table_recetas_usuario').DataTable({

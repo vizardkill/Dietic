@@ -226,10 +226,12 @@ $(document).ready(function () {
                             $('#mod_success').modal('hide');
                         } setTimeout(ShowSucess, 4000);
 
+                    } else {
+                        alert("Existen problemas con el servidor");
                     }
                 },
                 error: function (response) {
-                    console.log(response);
+                    console.error(response);
                     alert('Error con el servidor, por favor intentalo de nuevo mas tarde');
                 },
                 complete: function () {

@@ -20,6 +20,10 @@
         <servlet-name>Edit</servlet-name>
         <servlet-class>Servlets.Edit</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>Servlets.Logout</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -40,7 +44,10 @@
         <servlet-name>Edit</servlet-name>
         <url-pattern>/Edit</url-pattern>
     </servlet-mapping>
-
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

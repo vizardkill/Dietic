@@ -117,7 +117,9 @@
             </div>
             <div>
                 <a href="#">
-                    <i class="fa fa-power-off" data-toggle="tooltip" title="Salir"></i>
+                    <form id="form_logout" name="form_logout" method="GET" action="../../Logout">
+                        <i class="fa fa-power-off" data-toggle="tooltip" title="Salir" onclick="logout()"></i>
+                    </form>
                 </a>
             </div>
         </div>
