@@ -7,6 +7,7 @@ package DAO;
 
 import Conexion.Conexion;
 import Modelos.Cita;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -131,6 +132,36 @@ public class DAO_Cita implements ICita {
             return false;
         }
        
+    }
+
+    @Override
+    public boolean F_ValidateFecha(Cita c) {
+         Connection con;
+        con = Conexion.getConexion();
+        int aux;
+        try (CallableStatement cst = con.prepareCall("{ ? = call Validaciones_Citas (?,?)}")) {
+
+            cst.setString(2, c.getFecha());
+            cst.setString(3, c.getUsuario());
+
+            
+            cst.registerOutParameter(1, java.sql.Types.INTEGER);
+
+            cst.execute();
+
+            aux = cst.getInt(1);
+
+            cst.close();
+
+        } catch (SQLException ex) {
+            System.out.println("Error: En la Funcion SQL, método F_ValidateFecha: " + ex);
+            return false;
+        }
+
+        if (aux == 1) {
+            return true;
+        }
+        return false;
     }
 
 }

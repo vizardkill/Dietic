@@ -108,7 +108,7 @@ public class Register extends HttpServlet {
             }
 
         }
-        
+
         if (Tipo.equals("client")) {
             if (Peticion.equals("ValidarNickUsuario")) {
                 Usuario user = new Usuario();
@@ -144,16 +144,16 @@ public class Register extends HttpServlet {
                     response.getWriter().write("true");
                 }
             }
-            
+
         }
-        
+
         if (Tipo.equals("edit_system")) {
             if (Peticion.equals("ValidarNickUsuario")) {
                 Usuario user = new Usuario();
                 user.setUsuario(request.getParameter("form_edit_username_system"));
                 user.setIdentificacion(request.getParameter("form_edit_identificacion_system"));
                 controller_Usuario cuser = new controller_Usuario();
-                
+
                 if (cuser.F_ValidUserEdit(Peticion, user)) {
                     response.getWriter().write("false");
                 } else {
@@ -166,7 +166,7 @@ public class Register extends HttpServlet {
                 user.setCorreo(request.getParameter("form_edit_correo_system"));
                 user.setIdentificacion(request.getParameter("form_edit_identificacion_system"));
                 controller_Usuario cuser = new controller_Usuario();
-                
+
                 if (cuser.F_ValidUserEdit(Peticion, user)) {
                     response.getWriter().write("false");
                 } else {
@@ -179,14 +179,36 @@ public class Register extends HttpServlet {
                 user.setIdentificacion(request.getParameter("form_edit_identificacion_system"));
                 user.setIdentificacion(request.getParameter("form_edit_identificacion_system"));
                 controller_Usuario cuser = new controller_Usuario();
-                
+
                 if (cuser.F_ValidUserEdit(Peticion, user)) {
                     response.getWriter().write("false");
                 } else {
                     response.getWriter().write("true");
                 }
             }
-            
+        }
+
+        if (Tipo.equals("CreateCita")) {
+            if (Peticion.equals("ValidarFechaCita")) {
+                Cita c = new Cita();
+                try {
+                    c.setFecha(request.getParameter("form_reg_cita_fecha"));
+                    c.setUsuario(request.getParameter("form_reg_cita_usuario"));
+                    controller_Cita cc = new controller_Cita();
+
+                    if (cc.validateFecha(c)) {
+                        response.getWriter().write("false");
+                    } else {
+                        response.getWriter().write("true");
+                    }
+                    
+                } catch (ParseException ex) {
+                    response.getWriter().write("false");
+                    System.out.println("Error en el servidor al momento de ValidarFechaCita: " + ex);
+                }
+
+            }
+
         }
 
     }
@@ -243,7 +265,7 @@ public class Register extends HttpServlet {
 
             controller_Usuario cuser = new controller_Usuario();
 
-            if (cuser.setUser(user,Peticion)) {
+            if (cuser.setUser(user, Peticion)) {
                 response.getWriter().write("true");
             } else {
                 response.getWriter().write("false");
@@ -263,7 +285,7 @@ public class Register extends HttpServlet {
                 response.getWriter().write("false");
             }
         }
-        
+
         if (Peticion.equals("Registro_Cita")) {
             try {
                 Cita c = new Cita();
@@ -271,11 +293,10 @@ public class Register extends HttpServlet {
                 c.setUsuario(request.getParameter("form_reg_cita_usuario"));
                 c.setEstado(1);
                 c.setDescripcion(request.getParameter("form_reg_cita_desc"));
-                
+
                 controller_Cita cc = new controller_Cita();
-                
-                
-                if(cc.setCita(c)) {
+
+                if (cc.setCita(c)) {
                     response.getWriter().write("true");
                 } else {
                     response.getWriter().write("false");

@@ -93,4 +93,15 @@ END;
 /
 
 
+CREATE OR REPLACE FUNCTION Validaciones_Citas (V_fecha VARCHAR2,  V_Usuario VARCHAR2) RETURN NUMBER
+IS V_aux NUMBER(1,0);
+BEGIN
+    SELECT COUNT(Id) into V_aux FROM CITAS WHERE usuario = V_Usuario AND fecha = V_fecha;
+    RETURN V_aux;  
+
+   EXCEPTION WHEN NO_DATA_FOUND THEN
+   V_aux := 0;
+   RETURN V_aux;  
+END;
+/
 

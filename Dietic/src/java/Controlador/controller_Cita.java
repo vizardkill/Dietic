@@ -35,4 +35,9 @@ public class controller_Cita {
         ICita ic = new DAO_Cita();
         return ic.deleteCita(c);
     }
+    
+    public boolean validateFecha(Cita c) {
+        ICita ic = new DAO_Cita();
+        return ic.F_ValidateFecha(c);
+    }
 }

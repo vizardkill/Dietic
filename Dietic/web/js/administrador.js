@@ -821,6 +821,15 @@ $(document).ready(function () {
             form_reg_cita_fecha: {
                 required: true,
                 fechaActual: true,
+                remote: {
+                    url: "../../Register?Peticion=ValidarFechaCita&Tipo=CreateCita",
+                    type: "GET",
+                    data: {
+                        form_reg_cita_fecha: function () {
+                            return $("#form_reg_cita_fecha").val();
+                        },
+                    },
+                },
             },
             form_reg_cita_desc: {
                 required: true,
@@ -833,6 +842,7 @@ $(document).ready(function () {
             form_reg_cita_fecha: {
                 required: "La fecha es obligatoria",
                 fechaActual: "La fecha no puede ser menor o igual a la fecha actual.",
+                remote: "Ya tienes ocupada esta misma fecha y hora"
             },
             form_reg_cita_desc: {
                 required: "Describe brevemente el motivo de la cita",

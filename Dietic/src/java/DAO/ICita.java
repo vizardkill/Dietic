@@ -20,4 +20,6 @@ public interface ICita {
     public boolean updateCita(Cita c);
     
     public boolean deleteCita(Cita c);
+    
+    public boolean F_ValidateFecha(Cita c);
 }
