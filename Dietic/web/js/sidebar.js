@@ -72,7 +72,7 @@ jQuery(document).ready(function ($) {
 
         $('.sidebar-search-list li').each(function () {
 
-            if ($(this).filter('[data-search-term *= ' + searchTerm + ']').length > 0 || searchTerm.length < 1) {
+            if ($(this).filter("[data-search-term*= '" + searchTerm + "']").length > 0 || searchTerm.length < 1) {
                 $(this).show();
             } else {
                 $(this).hide();

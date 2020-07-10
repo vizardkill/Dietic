@@ -55,21 +55,26 @@
             <div class="sidebar-menu">
                 <ul class="sidebar-search-list">
 
-                    <li class="header-menu">
-                        <span>General</span>
+                    <li class="header-menu" data-search-term="General">
+                        <span >General</span>
                     </li>
-                    <li>
-                        <a href="Inicio.jsp">
+
+                    <li >
+                        <a href="Inicio.jsp" data-search-term="Inicio">
                             <i class="fa fa-home"></i>
-                            <span>Inicio</span>
+                            <span >Inicio</span>
                         </a>
+                    </li>
+
+                    <li data-search-term="Recetas">
                         <a href="Recetas.jsp">
                             <i class="fas fa-seedling"></i>
                             <span>Recetas</span>
                         </a>
                     </li>
+                        
 
-                    <li class="sidebar-dropdown">
+                    <li class="sidebar-dropdown" data-search-term="Administracion">
                         <a href="#">
                             <i class="fab fa-whmcs"></i>
                             <span>Administraci&#243n</span>
@@ -85,12 +90,13 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="header-menu">
+
+                    <li class="header-menu" data-search-term="Extra">
                         <span>Extra</span>
                     </li>
 
-                    </li>
-                    <li>
+
+                    <li data-search-term="Acerca De">
                         <a href="AcercaDe.jsp">
                             <i class="fa fa-book"></i><span>Acerca De</span>
                         </a>

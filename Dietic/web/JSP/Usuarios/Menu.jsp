@@ -54,31 +54,37 @@
             <div class="sidebar-menu">
                 <ul class="sidebar-search-list">
 
-                    <li class="header-menu">
+                    <li class="header-menu" data-search-term="General">
                         <span>General</span>
                     </li>
-                    <li>
+
+                    <li data-search-term="Inicio">
                         <a href="Inicio.jsp">
                             <i class="fa fa-home"></i>
                             <span>Inicio</span>
                         </a>
+                    </li>
+
+                    <li data-search-term="Recetas">
                         <a href="Recetas.jsp">
                             <i class="fas fa-seedling"></i>
                             <span>Recetas</span>
                         </a>
+                    </li>
 
+                    <li data-search-term="Citas">
                         <a href="Citas.jsp">
                             <i class="fas fa-not-equal"></i>
                             <span>Citas</span>
                         </a>
                     </li>
 
-                    <li class="header-menu">
+                    <li class="header-menu" data-search-term="Extra">
                         <span>Extra</span>
                     </li>
 
-                    </li>
-                    <li>
+
+                    <li data-search-term="Acerca De">
                         <a href="AcercaDe.jsp">
                             <i class="fa fa-book"></i><span>Acerca De</span>
                         </a>
