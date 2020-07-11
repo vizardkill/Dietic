@@ -842,7 +842,7 @@ $(document).ready(function () {
             form_reg_cita_fecha: {
                 required: "La fecha es obligatoria",
                 fechaActual: "La fecha no puede ser menor o igual a la fecha actual.",
-                remote: "Ya tienes ocupada esta misma fecha y hora"
+                remote: "La fecha se encuentra ocupada."
             },
             form_reg_cita_desc: {
                 required: "Describe brevemente el motivo de la cita",
